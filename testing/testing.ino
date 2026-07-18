@@ -52,7 +52,7 @@ void frontright()
     delay(800);
    servoB1.write(80);
    delay(800);
-    servoKN2.write(60);
+    servoKN2.write(40);
     delay(200);
     servoKN2.write(70);
     delay(200);
