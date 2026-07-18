@@ -47,7 +47,7 @@ void walkForward()
     }
 
     // Lift diagonal legs
-    for (int k = 90; k >= 50; k--)
+    for (int k = 110; k >= 50; k--)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -55,7 +55,7 @@ void walkForward()
     }
 
     // Place them down
-    for (int k = 50; k <= 90; k++)
+    for (int k = 50; k <= 110; k++)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -75,7 +75,7 @@ void walkForward()
     }
 
     // Lift opposite diagonal legs
-    for (int k = 90; k >= 50; k--)
+    for (int k = 110; k >= 50; k--)
     {
       servoKN2.write(k);
       servoKN4.write(k);
@@ -83,7 +83,7 @@ void walkForward()
     }
 
     // Place them down
-    for (int k = 50; k <= 90; k++)
+    for (int k = 50; k <= 110; k++)
     {
       servoKN2.write(k);
       servoKN4.write(k);
@@ -122,7 +122,7 @@ void  walkBackward()
     }
 
     // Lift diagonal legs
-    for (int k = 90; k >= 50; k--)
+    for (int k = 110; k >= 50; k--)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -130,7 +130,7 @@ void  walkBackward()
     }
 
     // Place them down
-    for (int k = 50; k <= 90; k++)
+    for (int k = 50; k <= 110; k++)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -150,7 +150,7 @@ void  walkBackward()
     }
 
     // Lift opposite diagonal legs
-    for (int k = 90; k >= 50; k--)
+    for (int k = 110; k >= 50; k--)
     {
       servoKN2.write(k);
       servoKN4.write(k);
@@ -158,7 +158,7 @@ void  walkBackward()
     }
 
     // Place them down
-    for (int k = 50; k <= 90; k++)
+    for (int k = 50; k <= 110; k++)
     {
       servoKN2.write(k);
       servoKN4.write(k);
