@@ -38,11 +38,11 @@ void walkForward()
     //---------------- STEP 1 ----------------//
     for (int i = 90; i >= 70; i--)
     {
-      servoH1.write(i+5);
-      servoH3.write(i+5);
+      servoH1.write(i);
+      servoH3.write(i);
 
-      servoH2.write(180 - i+5);
-      servoH4.write(180 - i+5);
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
 
       delay(30);
     }
@@ -66,11 +66,11 @@ void walkForward()
     //---------------- STEP 2 ----------------//
     for (int i = 70; i <= 110; i++)
     {
-      servoH1.write(i+5);
-      servoH3.write(i+5);
+      servoH1.write(i);
+      servoH3.write(i);
 
-      servoH2.write(180 - i+5);
-      servoH4.write(180 - i+5);
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
 
       delay(30);
     }
@@ -115,11 +115,11 @@ void walkBackward()
     //---------------- STEP 1 ----------------//
     for (int i = 90; i <= 110; i++)
     {
-      servoH1.write(i-5);
-      servoH3.write(i-5);
+      servoH1.write(i);
+      servoH3.write(i);
 
-      servoH2.write(180 - i-5);
-      servoH4.write(180 - i-5);
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
 
       delay(30);
     }
@@ -127,8 +127,8 @@ void walkBackward()
     // Lift Legs 1 & 4
     for (int k = 90; k >= 60; k--)
     {
-      servoKN1.write(k-5);
-      servoKN3.write(k-5);
+      servoKN1.write(k);
+      servoKN3.write(k);
       delay(30);
     }
 
@@ -143,11 +143,11 @@ void walkBackward()
     //---------------- STEP 2 ----------------//
     for (int i = 110; i >= 60; i--)
     {
-      servoH1.write(i-5);
-      servoH3.write(i-5);
+      servoH1.write(i);
+      servoH3.write(i);
 
-      servoH2.write(180 - i-5);
-      servoH4.write(180 - i-5);
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
 
       delay(30);
     }
@@ -171,11 +171,11 @@ void walkBackward()
     //---------------- Return Center ----------------//
     for (int i = 60; i <= 90; i++)
     {
-      servoH1.write(i-5);
-      servoH3.write(i-5);
+      servoH1.write(i);
+      servoH3.write(i);
 
-      servoH2.write(180 - i-5);
-      servoH4.write(180 - i-5);
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
 
       delay(30);
     }
