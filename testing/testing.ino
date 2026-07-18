@@ -49,11 +49,14 @@ void frontright()
 
   for (int i = 0; i <= 5; i=i++) {
     servoB1.write(60);
-    delay(100);
+    delay(500);
    servoB1.write(80);
-   delay(100);
+   delay(500);
   } 
   servoB1.write(60);
+  for(int j=0;j<=10;j++){
+
+  }
 }
 
 
