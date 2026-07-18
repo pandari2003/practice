@@ -226,6 +226,6 @@ void setup() {
 void loop() {
   walkForward();
   delay(5000);
-  walkForward();
+  walkBackward();
   delay(5000);
 }
