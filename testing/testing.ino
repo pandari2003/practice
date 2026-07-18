@@ -30,84 +30,24 @@ const int servoKN2Pin = 11; // Front Right (servo 9)
 const int servoKN3Pin = 12; // back Left (servo 11)
 const int servoKN4Pin = 13; // front left (servo 10)
 
-
-/****************BACKWARD****************/
-void walkBackward()
-{
-  // Repeat walking cycle
-  for (int step = 0; step < 5; step++)
+/*****************right turn**********************/
+void Rightmove(){
+    for (int step = 0; step < 2; step++)
   {
     //---------------- STEP 1 ----------------//
-    // Reverse of Forward STEP 1
-    for (int i = 100; i >= 70; i--)
+    for (int i = 70; i <= 110; i++)
     {
-      servoH1.write(i);
-      servoH3.write(i);
+      servoB1.write(i);
+      servoB3.write(i);
 
-      servoH2.write(180 - i);
-      servoH4.write(180 - i);
+      servoB2.write(180 - i);
+      servoB4.write(180 - i);
 
-      delay(30);
+      delay(80);
     }
-
-    // Lift Legs 1 & 3
-    for (int k = 100; k >= 60; k--)
-    {
-      servoKN1.write(k);
-      servoKN3.write(k);
-      delay(30);
-    }
-
-    // Lower Legs 1 & 3
-    for (int k = 60; k <= 100; k++)
-    {
-      servoKN1.write(k);
-      servoKN3.write(k);
-      delay(30);
-    }
-
-    //---------------- STEP 2 ----------------//
-    // Reverse of Forward STEP 2
-    for (int i = 70; i <= 100; i++)
-    {
-      servoH1.write(i);
-      servoH3.write(i);
-
-      servoH2.write(180 - i);
-      servoH4.write(180 - i);
-
-      delay(30);
-    }
-
-    // Lift Legs 2 & 4
-    for (int k = 100; k >= 60; k--)
-    {
-      servoKN2.write(k);
-      servoKN4.write(k);
-      delay(30);
-    }
-
-    // Lower Legs 2 & 4
-    for (int k = 60; k <= 100; k++)
-    {
-      servoKN2.write(k);
-      servoKN4.write(k);
-      delay(30);
-    }
-
-    //---------------- Return Center ----------------//
-    // Reverse of Forward Return Center
-    for (int i = 100; i >= 90; i--)
-    {
-      servoH1.write(i);
-      servoH3.write(i);
-
-      servoH2.write(180 - i);
-      servoH4.write(180 - i);
-
-      delay(30);
-    }
+    delay(40);
   }
+
 }
 
 void setup() {
@@ -151,6 +91,6 @@ void setup() {
 
 void loop() {
 
-  walkBackward();
+  Rightmove();
 
 }
