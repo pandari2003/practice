@@ -48,18 +48,22 @@ void frontright()
   servoKN4.write(90);
 
   for (int i = 0; i <= 5; i=i++) {
-    servoB1.write(60);
-    delay(500);
+    servoB1.write(70);
+    delay(800);
    servoB1.write(80);
-   delay(500);
-  } 
+   delay(800);
+    servoKN2.write(80);
+    delay(300);
+    servoKN2.write(90);
+    delay(300);
+  } /*
   servoB1.write(60);
   for(int j=0;j<=10;j++){
     servoKN2.write(80);
     delay(300);
     servoKN2.write(90);
     delay(300);
-  }
+  }*/
 }
 
 
