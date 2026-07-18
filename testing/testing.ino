@@ -29,36 +29,27 @@ const int servoKN1Pin = 10;
 const int servoKN2Pin = 11;
 const int servoKN3Pin = 12;
 const int servoKN4Pin = 13;
-
-
-void frontright()
+void Sit()
 {
-  servoB2.write(120);
-  servoB3.write(60);
-  servoB4.write(90);
+    for (int i = 90; i >= 0; i--)
+    {
+        // Left pair
+        servoH2.write(i);
+        servoH3.write(i);
+        servoKN2.write(i);
+        servoKN3.write(i);
 
-  servoH1.write(80);
-  servoH2.write(150);
-  servoH3.write(130);
-  servoH4.write(80);
+        // Right pair
+        servoH1.write(180 - i);
+        servoH4.write(180 - i);
+        servoKN1.write(180 - i);
+        servoKN4.write(180 - i);
 
-  servoKN1.write(90);
- 
-  servoKN3.write(90);
-  servoKN4.write(90);
+        delay(50);      // Same speed as Stand
+    }
 
-  for (int i = 0; i <= 5; i=i++) {
-    servoB1.write(70);
-    delay(800);
-   servoB1.write(80);
-   delay(800);
-    servoKN2.write(40);
-    delay(200);
-    servoKN2.write(70);
-    delay(200);
-  }
+    delay(50);
 }
-
 
 void setup() {
   Serial.begin(9600);
@@ -101,5 +92,5 @@ void setup() {
 }
 
 void loop() {
-  frontright();
+  Sit();
 }
