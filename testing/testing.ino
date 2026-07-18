@@ -36,14 +36,14 @@ void Sit()
         // Left pair
         servoH2.write(i);
         servoH3.write(i);
-        servoKN2.write(i-30);
-        servoKN3.write(i-30);
+        servoKN2.write(i-60);
+        servoKN3.write(i-60);
 
         // Right pair
         servoH1.write(180 - i);
         servoH4.write(180 - i);
-        servoKN1.write(180 - i);
-        servoKN4.write(180 - i);
+        servoKN1.write(270 - i);
+        servoKN4.write(270 - i);
 
         delay(50);      // Same speed as Stand
     }
