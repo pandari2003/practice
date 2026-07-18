@@ -31,7 +31,7 @@ const int servoKN3Pin = 12;
 const int servoKN4Pin = 13;
 void Sit()
 {
-    for (int i = 45; i >= 0; i--)
+    for (int i = 90; i >= 0; i--)
     {
         // Left pair
         servoH2.write(i);
