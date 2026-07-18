@@ -64,7 +64,7 @@ void walkForward()
     }
 
     //---------------- STEP 2 ----------------//
-    for (int i = 60; i <= 120; i++)
+    for (int i = 60; i <= 110; i++)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -92,7 +92,7 @@ void walkForward()
     }
 
     //---------------- Return Center ----------------//
-    for (int i = 120; i >= 90; i--)
+    for (int i = 110; i >= 90; i--)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -113,7 +113,7 @@ void walkBackward()
   for (int step = 0; step < 5; step++)
   {
     //---------------- STEP 1 ----------------//
-    for (int i = 90; i <= 120; i++)
+    for (int i = 90; i <= 110; i++)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -141,7 +141,7 @@ void walkBackward()
     }
 
     //---------------- STEP 2 ----------------//
-    for (int i = 120; i >= 60; i--)
+    for (int i = 110; i >= 60; i--)
     {
       servoH1.write(i);
       servoH3.write(i);
