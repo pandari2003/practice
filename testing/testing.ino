@@ -37,20 +37,20 @@ void Rightmove(){
     //---------------- STEP 1 ----------------//
     for (int i = 70; i <= 110; i++)
     {
-      servoB1.write(i-5);
-      servoB3.write(i+5);
+      servoB1.write(i+50);
+      servoB3.write(i);
 
-      servoB2.write(180 - i-5);
+      servoB2.write(180 - i);
       servoB4.write(180 - i);
 
       delay(50);
     }
         for (int i = 110; i >= 70; i--)
     {
-      servoB1.write(i+5);
-      servoB3.write(i-5);
+      servoB1.write(i);
+      servoB3.write(i);
 
-      servoB2.write(180 - i+5);
+      servoB2.write(180 - i);
       servoB4.write(180 - i);
 
       delay(50);
