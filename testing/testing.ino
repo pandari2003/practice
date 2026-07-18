@@ -31,13 +31,13 @@ const int servoKN3Pin = 12;
 const int servoKN4Pin = 13;
 void Sit()
 {
-    for (int i = 90; i >= 0; i--)
+    for (int i = 45; i >= 0; i--)
     {
         // Left pair
         servoH2.write(i);
         servoH3.write(i);
-        servoKN2.write(i-90);
-        servoKN3.write(i-90);
+        servoKN2.write(i-45);
+        servoKN3.write(i-45);
 
         // Right pair
         servoH1.write(180 - i);
