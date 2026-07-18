@@ -51,7 +51,7 @@ void walkBackward()
     }
 
     // Lift Legs 1 & 3
-    for (int k = 100; k >= 70; k--)
+    for (int k = 100; k >= 60; k--)
     {
       servoKN1.write(k);
       servoKN3.write(k);
