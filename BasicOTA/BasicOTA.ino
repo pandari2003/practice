@@ -21,7 +21,7 @@ void setup() {
     ESP.restart();
   }
 
-/*
+
   ArduinoOTA
     .onStart([]() {
       String type;
@@ -56,7 +56,7 @@ void setup() {
         Serial.println("End Failed");
       }
     });
-*/
+
   ArduinoOTA.begin();
 
   Serial.println("Ready");
