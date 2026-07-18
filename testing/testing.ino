@@ -41,7 +41,7 @@ void walkForward()
     {
       servoKN2.write(k);   // Front Right
       servoKN3.write(k);   // Back Left
-      delay(15);
+      delay(25);
     }
 
     // Swing lifted legs forward
@@ -49,7 +49,7 @@ void walkForward()
     {
       servoH2.write(180 - i);
       servoH3.write(i);
-      delay(15);
+      delay(25);
     }
 
     // Put legs down
@@ -57,7 +57,7 @@ void walkForward()
     {
       servoKN2.write(k);
       servoKN3.write(k);
-      delay(15);
+      delay(25);
     }
 
     // Push body forward with support legs
@@ -67,7 +67,7 @@ void walkForward()
       servoH2.write(180 - i);
       servoH3.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
 
     //==============================
@@ -77,7 +77,7 @@ void walkForward()
     {
       servoKN1.write(k);   // Back Right
       servoKN4.write(k);   // Front Left
-      delay(15);
+      delay(25);
     }
 
     // Swing lifted legs forward
@@ -85,7 +85,7 @@ void walkForward()
     {
       servoH1.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
 
     // Put legs down
@@ -93,7 +93,7 @@ void walkForward()
     {
       servoKN1.write(k);
       servoKN4.write(k);
-      delay(15);
+      delay(25);
     }
 
     // Push body forward
@@ -103,7 +103,7 @@ void walkForward()
       servoH2.write(180 - i);
       servoH3.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
 
     // Return to center
@@ -113,7 +113,7 @@ void walkForward()
       servoH2.write(180 - i);
       servoH3.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
   }
 }
@@ -129,7 +129,7 @@ void walkBackward()
     {
       servoKN2.write(k);   // Front Right
       servoKN3.write(k);   // Back Left
-      delay(15);
+      delay(25);
     }
 
     // Swing lifted legs backward
@@ -137,7 +137,7 @@ void walkBackward()
     {
       servoH2.write(180 - i);
       servoH3.write(i);
-      delay(15);
+      delay(25);
     }
 
     // Put legs down
@@ -145,7 +145,7 @@ void walkBackward()
     {
       servoKN2.write(k);
       servoKN3.write(k);
-      delay(15);
+      delay(25);
     }
 
     // Pull body backward
@@ -155,7 +155,7 @@ void walkBackward()
       servoH2.write(180 - i);
       servoH3.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
 
     //==============================
@@ -165,7 +165,7 @@ void walkBackward()
     {
       servoKN1.write(k);   // Back Right
       servoKN4.write(k);   // Front Left
-      delay(15);
+      delay(25);
     }
 
     // Swing lifted legs backward
@@ -173,7 +173,7 @@ void walkBackward()
     {
       servoH1.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
 
     // Put legs down
@@ -181,7 +181,7 @@ void walkBackward()
     {
       servoKN1.write(k);
       servoKN4.write(k);
-      delay(15);
+      delay(25);
     }
 
     // Pull body backward
@@ -191,7 +191,7 @@ void walkBackward()
       servoH2.write(180 - i);
       servoH3.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
 
     // Return to center
@@ -201,7 +201,7 @@ void walkBackward()
       servoH2.write(180 - i);
       servoH3.write(i);
       servoH4.write(180 - i);
-      delay(15);
+      delay(25);
     }
   }
 }
