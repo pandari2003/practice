@@ -35,7 +35,7 @@ void walkForward()
   for (int step = 0; step < 5; step++)
   {
     // STEP 1 : Move hips backward
-    for (int i = 90; i >= 70; i--)
+    for (int i = 90; i >= 60; i--)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -47,7 +47,7 @@ void walkForward()
     }
 
     // Lift diagonal legs
-    for (int k = 90; k >= 60; k--)
+    for (int k = 90; k >= 50; k--)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -55,7 +55,7 @@ void walkForward()
     }
 
     // Place them down
-    for (int k = 60; k <= 90; k++)
+    for (int k = 50; k <= 90; k++)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -63,7 +63,7 @@ void walkForward()
     }
 
     // STEP 2 : Move hips forward
-    for (int i = 70; i <= 110; i++)
+    for (int i = 60; i <= 110; i++)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -75,7 +75,7 @@ void walkForward()
     }
 
     // Lift opposite diagonal legs
-    for (int k = 90; k >= 60; k--)
+    for (int k = 90; k >= 50; k--)
     {
       servoKN2.write(k);
       servoKN4.write(k);
@@ -83,7 +83,7 @@ void walkForward()
     }
 
     // Place them down
-    for (int k = 60; k <= 90; k++)
+    for (int k = 50; k <= 90; k++)
     {
       servoKN2.write(k);
       servoKN4.write(k);
@@ -110,7 +110,7 @@ void  walkBackward()
   for (int step = 0; step < 5; step++)
   {
     // STEP 1 : Move hips backward
-    for (int i = 90; i >= 70; i--)
+    for (int i = 90; i >= 60; i--)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -122,7 +122,7 @@ void  walkBackward()
     }
 
     // Lift diagonal legs
-    for (int k = 90; k >= 60; k--)
+    for (int k = 90; k >= 50; k--)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -130,7 +130,7 @@ void  walkBackward()
     }
 
     // Place them down
-    for (int k = 60; k <= 90; k++)
+    for (int k = 50; k <= 90; k++)
     {
       servoKN1.write(k);
       servoKN3.write(k);
@@ -138,7 +138,7 @@ void  walkBackward()
     }
 
     // STEP 2 : Move hips forward
-    for (int i = 70; i <= 110; i++)
+    for (int i = 60; i <= 110; i++)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -150,7 +150,7 @@ void  walkBackward()
     }
 
     // Lift opposite diagonal legs
-    for (int k = 90; k >= 60; k--)
+    for (int k = 90; k >= 50; k--)
     {
       servoKN2.write(k);
       servoKN4.write(k);
@@ -158,7 +158,7 @@ void  walkBackward()
     }
 
     // Place them down
-    for (int k = 60; k <= 90; k++)
+    for (int k = 50; k <= 90; k++)
     {
       servoKN2.write(k);
       servoKN4.write(k);
