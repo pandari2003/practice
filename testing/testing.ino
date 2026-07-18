@@ -30,38 +30,34 @@ const int servoKN2Pin = 11; // Front Right (servo 9)
 const int servoKN3Pin = 12; // back Left (servo 11)
 const int servoKN4Pin = 13; // front left (servo 10)
 
-/************************left move***************/
-void Leftmove(){
+/*****************right turn**********************/
+void Rightmove(){
     for (int step = 0; step < 2; step++)
   {
     //---------------- STEP 1 ----------------//
-          for (int i = 110; i >= 60; i--)
+    for (int i = 70; i <= 110; i++)
     {
       servoB1.write(i);
-      
-      servoB2.write(180 - i);
-
       servoB3.write(i);
-      
+
+      servoB2.write(180 - i);
       servoB4.write(180 - i);
 
       delay(50);
     }
-      delay(40);
-    for (int i = 60; i <= 110; i++)
+        for (int i = 110; i >= 70; i--)
     {
       servoB1.write(i);
-
-      servoB2.write(180 - i);
-
       servoB3.write(i);
 
+      servoB2.write(180 - i);
       servoB4.write(180 - i);
 
       delay(50);
     }
     delay(40);
   }
+
 }
 
 void setup() {
@@ -105,6 +101,6 @@ void setup() {
 
 void loop() {
 
-  Leftmove();
+  Rightmove();
 
 }
