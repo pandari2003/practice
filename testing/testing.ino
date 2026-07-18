@@ -152,5 +152,6 @@ void setup() {
 void loop() {
 
   walkBackward();
+  delay(1000);
 
 }
