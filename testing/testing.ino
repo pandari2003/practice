@@ -41,7 +41,7 @@ void Rightmove(){
       servoB3.write(i);
 
       servoB2.write(180 - i);
-      servoB4.write(180 - i+10);
+      servoB4.write(90);
 
       delay(50);
     }
@@ -51,7 +51,7 @@ void Rightmove(){
       servoB3.write(i);
 
       servoB2.write(180 - i);
-      servoB4.write(180 - i-10);
+      servoB4.write(90);
 
       delay(50);
     }
