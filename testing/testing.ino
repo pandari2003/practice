@@ -39,7 +39,7 @@ void walkBackward()
   {
     //---------------- STEP 1 ----------------//
     // Reverse of Forward STEP 1
-    for (int i = 90; i >= 70; i--)
+    for (int i = 100; i >= 70; i--)
     {
       servoH1.write(i);
       servoH3.write(i);
