@@ -135,8 +135,8 @@ void walkBackward()
     // Lower Legs 1 & 4
     for (int k = 60; k <= 90; k++)
     {
-      servoKN1.write(k-5);
-      servoKN3.write(k-5);
+      servoKN1.write(k);
+      servoKN3.write(k);
       delay(30);
     }
 
@@ -155,16 +155,16 @@ void walkBackward()
     // Lift Legs 2 & 3
     for (int k = 90; k >= 60; k--)
     {
-      servoKN2.write(k-5);
-      servoKN4.write(k-5);
+      servoKN2.write(k);
+      servoKN4.write(k);
       delay(30);
     }
 
     // Lower Legs 2 & 3
     for (int k = 60; k <= 90; k++)
     {
-      servoKN2.write(k-5);
-      servoKN4.write(k-5);
+      servoKN2.write(k);
+      servoKN4.write(k);
       delay(30);
     }
 
