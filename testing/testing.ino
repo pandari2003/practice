@@ -33,7 +33,7 @@ const int servoKN4Pin = 13; // front left (servo 10)
 void walkForward()
 {
   // Repeat walking cycle
-  for (int step = 0; step < 20; step++)
+  for (int step = 0; step < 5; step++)
   {
     //---------------- STEP 1 ----------------//
     for (int i = 90; i >= 70; i--)
@@ -110,9 +110,10 @@ void walkForward()
 void walkBackward()
 {
   // Repeat walking cycle
-  for (int step = 0; step < 20; step++)
+  for (int step = 0; step < 5; step++)
   {
     //---------------- STEP 1 ----------------//
+    // Reverse of Forward STEP 1
     for (int i = 90; i <= 110; i++)
     {
       servoH1.write(i);
@@ -124,7 +125,7 @@ void walkBackward()
       delay(30);
     }
 
-    // Lift Legs 1 & 4
+    // Lift Legs 1 & 3
     for (int k = 90; k >= 70; k--)
     {
       servoKN1.write(k);
@@ -132,7 +133,7 @@ void walkBackward()
       delay(30);
     }
 
-    // Lower Legs 1 & 4
+    // Lower Legs 1 & 3
     for (int k = 70; k <= 90; k++)
     {
       servoKN1.write(k);
@@ -141,6 +142,7 @@ void walkBackward()
     }
 
     //---------------- STEP 2 ----------------//
+    // Reverse of Forward STEP 2
     for (int i = 110; i >= 70; i--)
     {
       servoH1.write(i);
@@ -152,7 +154,7 @@ void walkBackward()
       delay(30);
     }
 
-    // Lift Legs 2 & 3
+    // Lift Legs 2 & 4
     for (int k = 90; k >= 70; k--)
     {
       servoKN2.write(k);
@@ -160,7 +162,7 @@ void walkBackward()
       delay(30);
     }
 
-    // Lower Legs 2 & 3
+    // Lower Legs 2 & 4
     for (int k = 70; k <= 90; k++)
     {
       servoKN2.write(k);
@@ -169,6 +171,7 @@ void walkBackward()
     }
 
     //---------------- Return Center ----------------//
+    // Reverse of Forward Return Center
     for (int i = 70; i <= 90; i++)
     {
       servoH1.write(i);
@@ -180,8 +183,6 @@ void walkBackward()
       delay(30);
     }
   }
-
- 
 }
 
 void setup() {
