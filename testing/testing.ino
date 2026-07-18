@@ -43,7 +43,7 @@ void walkForward()
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(20);
     }
 
     // Lift diagonal legs
@@ -51,7 +51,7 @@ void walkForward()
     {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(20);
     }
 
     // Place them down
@@ -59,7 +59,7 @@ void walkForward()
     {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(20);
     }
 
     // STEP 2 : Move hips forward
@@ -71,7 +71,7 @@ void walkForward()
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(20);
     }
 
     // Lift opposite diagonal legs
@@ -79,7 +79,7 @@ void walkForward()
     {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(20);
     }
 
     // Place them down
@@ -87,7 +87,7 @@ void walkForward()
     {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(20);
     }
 
     // Return to center
@@ -99,7 +99,7 @@ void walkForward()
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(20);
     }
   }
 }
@@ -118,7 +118,7 @@ void  walkBackward()
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(20);
     }
 
     // Lift diagonal legs
@@ -126,7 +126,7 @@ void  walkBackward()
     {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(20);
     }
 
     // Place them down
@@ -134,7 +134,7 @@ void  walkBackward()
     {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(20);
     }
 
     // STEP 2 : Move hips forward
@@ -146,7 +146,7 @@ void  walkBackward()
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(20);
     }
 
     // Lift opposite diagonal legs
@@ -154,7 +154,7 @@ void  walkBackward()
     {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(20);
     }
 
     // Place them down
@@ -162,7 +162,7 @@ void  walkBackward()
     {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(20);
     }
 
     // Return to center
@@ -174,7 +174,7 @@ void  walkBackward()
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(20);
     }
   }
 }
@@ -197,7 +197,6 @@ void setup() {
   servoKN3.attach(servoKN3Pin);
   servoKN4.attach(servoKN4Pin);
 
-  delay(1000);
 
   // Set all servos to 90 degrees
   servoB1.write(90);
