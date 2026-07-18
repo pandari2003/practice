@@ -39,7 +39,7 @@ void Rightmove(){
     {
       servoB1.write(90);
       servoB3.write(i);
-
+      servoKN2.write(i);
       servoB2.write(180 - i);
       servoB4.write(90);
 
@@ -49,6 +49,7 @@ void Rightmove(){
     {
       servoB1.write(90);
       servoB3.write(i);
+      servoKN2.write(i);
 
       servoB2.write(180 - i);
       servoB4.write(90);
