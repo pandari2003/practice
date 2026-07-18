@@ -110,7 +110,7 @@ void  walkBackward()
   for (int step = 0; step < 5; step++)
   {
     // STEP 1 : Move hips backward
-    for (int i = 90; i >= 60; i--)
+    for (int i = 90; i >= 80; i--)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -138,7 +138,7 @@ void  walkBackward()
     }
 
     // STEP 2 : Move hips forward
-    for (int i = 60; i <= 110; i++)
+    for (int i = 90; i <= 110; i++)
     {
       servoH1.write(i);
       servoH3.write(i);
@@ -166,7 +166,7 @@ void  walkBackward()
     }
 
     // Return to center
-    for (int i = 110; i >= 90; i--)
+    for (int i = 110; i >= 80; i--)
     {
       servoH1.write(i);
       servoH3.write(i);
