@@ -75,14 +75,14 @@ delay(20);
     // Lift Legs 2 & 4
     for (int k = 100; k >= 60; k--) {
       servoKN2.write(k);
-      servoKN3.write(180-k);
+      servoKN3.write(270-k);
       delay(30);
     }
 
     // Lower Legs 2 & 4
     for (int k = 60; k <= 100; k++) {
       servoKN2.write(k);
-      servoKN3.write(180-k);
+      servoKN3.write(270-k);
       delay(30);
     }
 
