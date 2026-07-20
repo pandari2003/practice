@@ -180,5 +180,11 @@ void setup() {
 void loop() {
 //walkBackward();
 
+Sit();
+delay(1000);
+Stand();
+delay(1000);
+
+
 
 }
