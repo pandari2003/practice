@@ -121,7 +121,7 @@ void Sit() {
 
 /******************stand robot********************/  //stand
 void Stand() {
-  for (int i = 0; i <= 45; i++) {
+  for (int i = 0; i <= 90; i++) {
     // Left pair
     servoH2.write(i);
     servoH3.write(i);
@@ -181,9 +181,9 @@ void loop() {
 //walkBackward();
 
 Sit();
-delay(1000);
+delay(10000);
 Stand();
-delay(1000);
+delay(10000);
 
 
 
