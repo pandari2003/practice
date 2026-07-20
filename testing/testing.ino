@@ -102,16 +102,16 @@ const int servoKN4Pin = 13; // front left (servo 10)
 void Sit() {
   for (int i = 90; i >= 0; i--) {
     // Left pair
-    servoH2.write(i-45);
-    servoH3.write(i-45);
-    servoKN2.write(i);
-    servoKN3.write(i);
+    servoH2.write(i);
+    servoH3.write(i);
+    servoKN2.write(i-45);
+    servoKN3.write(i-45);
 
     // Right pair
-    servoH1.write(180 - i-45);
-    servoH4.write(180 - i-45);
-    servoKN1.write(180 - i);
-    servoKN4.write(180 - i);
+    servoH1.write(180 - i);
+    servoH4.write(180- i);
+    servoKN1.write(230 - i);
+    servoKN4.write(230 - i);
 
     delay(50);  // Same speed as Stand
   }
@@ -125,14 +125,14 @@ void Stand() {
     // Left pair
     servoH2.write(i);
     servoH3.write(i);
-    servoKN2.write(i);
-    servoKN3.write(i);
+    servoKN2.write(i-45);
+    servoKN3.write(i-45);
 
     // Right pair
     servoH1.write(180 - i);
     servoH4.write(180 - i);
-    servoKN1.write(180 - i);
-    servoKN4.write(180 - i);
+    servoKN1.write(230 - i);
+    servoKN4.write(230 - i);
 
     delay(50);  // Adjust speed here
   }
