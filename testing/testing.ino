@@ -33,7 +33,7 @@ const int servoKN4Pin = 13; // front left (servo 10)
 
  
 /****************BACKWARD****************/
-/*void walkBackward() {
+void walkBackward() {
   // Repeat walking cycle
   for (int step = 0; step < 10; step++) {
     //---------------- STEP 1 ----------------//
@@ -97,8 +97,8 @@ const int servoKN4Pin = 13; // front left (servo 10)
       delay(30);
     }
   }
-}*/
-
+}
+/*
 void Sit() {
   for (int i = 90; i >= 0; i--) {
     // Left pair
@@ -119,7 +119,7 @@ void Sit() {
   delay(60);
 }
 
-/******************stand robot********************/  //stand
+stand
 void Stand() {
   for (int i = 0; i <= 90; i++) {
     // Left pair
@@ -139,7 +139,7 @@ void Stand() {
 
   delay(50);
 }
- 
+ */
 void setup() {
   Serial.begin(9600);
 
@@ -179,12 +179,12 @@ void setup() {
 }
 void loop() {
 //walkBackward();
-
+/*
 Sit();
 delay(10000);
 Stand();
 delay(10000);
-
+*/
 
 
 }
