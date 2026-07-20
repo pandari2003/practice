@@ -108,15 +108,15 @@ void Sit() {
     servoKN3.write(i-45);
 
     // Right pair
-    servoH1.write(135 - i);
-    servoH4.write(135- i);
+    servoH1.write(180 - i);
+    servoH4.write( 180- i);
     servoKN1.write(230 - i);
     servoKN4.write(230 - i);
 
-    delay(50);  // Same speed as Stand
+    delay(80);  // Same speed as Stand
   }
 
-  delay(50);
+  delay(60);
 }
 
 /******************stand robot********************/  //stand
@@ -129,8 +129,8 @@ void Stand() {
     servoKN3.write(i-45);
 
     // Right pair
-    servoH1.write(135 - i);
-    servoH4.write(135 - i);
+    servoH1.write(180 - i);
+    servoH4.write(180 - i);
     servoKN1.write(230 - i);
     servoKN4.write(230 - i);
 
