@@ -51,7 +51,7 @@ void Leftmove(){
     {
       servoB3.write(90);
       servoB1.write(i);
-      servoKN4.write(i);
+      servoKN1.write(i);
       servoB4.write(180 - i);
       servoB2.write(90);
 
@@ -66,7 +66,7 @@ void setup() {
   servoB1.attach(servoB1pin);
   servoB2.attach(servoB2pin);
   servoB3.attach(servoB3pin);
-  servoB4.attach(servoB4pin);//init
+  servoB4.attach(servoB4pin);
 
   servoH1.attach(servoH1Pin);
   servoH2.attach(servoH2Pin);
