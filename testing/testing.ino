@@ -66,7 +66,7 @@ void setup() {
   servoB1.attach(servoB1pin);
   servoB2.attach(servoB2pin);
   servoB3.attach(servoB3pin);
-  servoB4.attach(servoB4pin);
+  servoB4.attach(servoB4pin);//init
 
   servoH1.attach(servoH1Pin);
   servoH2.attach(servoH2Pin);
