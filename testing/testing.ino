@@ -99,8 +99,9 @@ const int servoKN4Pin = 13; // front left (servo 10)
   }
 }*/
 
+/**********************sit robot******************/  //fixed
 void Sit() {
-  for (int i = 45; i >= 0; i--) {
+  for (int i = 90; i >= 0; i--) {
     // Left pair
     servoH2.write(i);
     servoH3.write(i);
@@ -139,7 +140,6 @@ void Stand() {
 
   delay(50);
 }
- 
 void setup() {
   Serial.begin(9600);
 
