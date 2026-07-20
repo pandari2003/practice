@@ -43,7 +43,7 @@ void Leftmove(){
       servoB4.write(180 - i);
       servoB2.write(90);
 
-      delay(50);
+      delay(80);
     }
     delay(40);
 
@@ -55,7 +55,7 @@ void Leftmove(){
       servoB4.write(180 - i);
       servoB2.write(90);
 
-      delay(50);
+      delay(80);
     }
     delay(40);
   }
