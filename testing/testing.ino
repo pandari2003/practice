@@ -38,8 +38,9 @@ void Leftmove(){
     for (int i = 110; i >= 70; i--)
     {
       servoB3.write(90);
+       servoKN4.write(i);
       servoB1.write(i);
-      servoKN4.write(i);
+     
       servoB4.write(180 - i);
       servoB2.write(90);
 
@@ -50,8 +51,9 @@ void Leftmove(){
     for (int i = 70; i <= 110; i++)
     {
       servoB3.write(90);
-      servoB1.write(i);
       servoKN1.write(i);
+      servoB1.write(i);
+      
       servoB4.write(180 - i);
       servoB2.write(90);
 
