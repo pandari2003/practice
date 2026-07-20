@@ -57,6 +57,7 @@ void Leftmove(){
 
       delay(50);
     }
+    delay(40);
   }
 }
 void setup() {
