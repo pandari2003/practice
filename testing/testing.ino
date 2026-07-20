@@ -32,30 +32,30 @@ const int servoKN4Pin = 13; // front left (servo 10)
 
 /************************left move***************/
 void Leftmove(){
-    for (int step = 0; step < 5; step++)
+    for (int step = 0; step < 2; step++)
   {
     //---------------- STEP 1 ----------------//
     for (int i = 110; i >= 70; i--)
     {
+      servoB3.write(90);
       servoB1.write(i);
-      servoB3.write(i);
-
-      servoB2.write(180 - i);
+      servoKN4.write(i);
       servoB4.write(180 - i);
+      servoB2.write(90);
 
-      delay(80);
+      delay(50);
     }
     delay(40);
 
     for (int i = 70; i <= 110; i++)
     {
+      servoB3.write(90);
       servoB1.write(i);
-      servoB3.write(i);
-
-      servoB2.write(180 - i);
+      servoKN4.write(i);
       servoB4.write(180 - i);
+      servoB2.write(90);
 
-      delay(80);
+      delay(50);
     }
   }
 }
@@ -78,7 +78,6 @@ void setup() {
   servoKN3.attach(servoKN3Pin);
   servoKN4.attach(servoKN4Pin);
 
-
   // Set all servos to 90 degrees
   servoB1.write(90);
   servoB2.write(90);
@@ -97,10 +96,8 @@ void setup() {
 
   Serial.println("All servos set to 90 degrees");
 }
-
 void loop() {
 
   Leftmove();
-
 
 }
