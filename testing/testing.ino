@@ -108,7 +108,7 @@ void Sit() {
     servoKN3.write(i-45);
 
     // Right pair
-    servoH1.write(180 - i);
+    servoH1.write(135 - i);
     servoH4.write(135- i);
     servoKN1.write(230 - i);
     servoKN4.write(230 - i);
