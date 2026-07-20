@@ -178,7 +178,7 @@ void setup() {
   Serial.println("All servos set to 90 degrees");
 }
 void loop() {
-//walkBackward();
+walkBackward();
 /*
 Sit();
 delay(10000);
