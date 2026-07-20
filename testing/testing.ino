@@ -179,12 +179,12 @@ void setup() {
 }
 void loop() {
 //walkBackward();
-  delay(20000);
+  delay(2000);
   Stand();
-  delay(20000);  // 30 seconds
+  delay(2000);  // 30 seconds
 
   Sit();
-  delay(20000);
+  delay(2000);
 
 
 }
