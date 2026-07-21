@@ -285,8 +285,6 @@ void Handshake() {
     servoKN2.write(70);
     delay(200);
   }
-
-  Stand();      // Return to standing posture after handshake
   delay(500);
 }
 
