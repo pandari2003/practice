@@ -191,7 +191,7 @@ void walkBackward() {
 
 /*****************right move**********************/
 void Rightmove() {
-  for (int step = 0; step < 2; step++) {
+  for (int step = 0; step < 5; step++) {
     //---------------- STEP 1 ----------------//
     for (int i = 70; i <= 110; i++) {
       servoB1.write(90);
@@ -217,7 +217,7 @@ void Rightmove() {
 
 /************************left move***************/
 void Leftmove() {
-  for (int step = 0; step < 2; step++) {
+  for (int step = 0; step < 5; step++) {
     //---------------- STEP 1 ----------------//
     for (int i = 110; i >= 70; i--) {
       servoB3.write(90);
