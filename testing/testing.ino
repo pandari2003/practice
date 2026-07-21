@@ -193,7 +193,7 @@ void walkBackward() {
     }
 
     //---------------- Return Center ----------------//
-    for (int i = 70; i <= 90; i++) {
+    for (int i = 90; i >= 70; i--) {
       servoH1.write(i);
       servoH3.write(i);
 
