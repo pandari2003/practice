@@ -257,6 +257,7 @@ void Leftmove() {
 }
 /*******************hand shake*****************/
 void Handshake() {
+
   servoB2.write(120);
   servoB3.write(60);
   servoB4.write(90);
@@ -267,21 +268,26 @@ void Handshake() {
   servoH4.write(80);
 
   servoKN1.write(90);
-
   servoKN3.write(90);
   servoKN4.write(90);
 
-  for (int i = 0; i <= 5; i = i++) {
+  for (int i = 0; i < 5; i++) {
+
     servoB1.write(70);
     delay(800);
+
     servoB1.write(80);
     delay(800);
+
     servoKN2.write(40);
     delay(200);
+
     servoKN2.write(70);
     delay(200);
   }
-  delay(40);
+
+  Stand();      // Return to standing posture after handshake
+  delay(500);
 }
 
 /***********************setup************************/
