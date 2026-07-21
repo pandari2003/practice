@@ -57,7 +57,7 @@ void walkBackward() {
 
     //---------------- STEP 1: Shift Hips ----------------//
     //for (int i = 100; i >= 70; i--) {
-      servoH1.write(90);        // Symmetric right side shift
+      servoH1.write(120);        // Symmetric right side shift
       servoH3.write(90);        // Left side tracking
       servoH2.write(90);  // Mirrored front right
       servoH4.write(90);  // Mirrored front left
