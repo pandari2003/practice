@@ -57,12 +57,12 @@ void walkBackward() {
 
     //---------------- STEP 1: Shift Hips ----------------//
     //for (int i = 100; i >= 70; i--) {
-      servoH1.write(80);        // Symmetric right side shift
-      servoH3.write(100);        // Left side tracking
-      servoH2.write(100);  // Mirrored front right
-      servoH4.write(80);  // Mirrored front left
-      delay(30);
-   // }
+    servoH1.write(80);   // Symmetric right side shift
+    servoH3.write(100);  // Left side tracking
+    servoH2.write(100);  // Mirrored front right
+    servoH4.write(80);   // Mirrored front left
+    delay(30);
+    // }
     delay(20);
 
     //---------------- STEP 1: Lift & Lower Legs 1 & 4 ----------------//
@@ -72,7 +72,7 @@ void walkBackward() {
       servoKN4.write(k);
       delay(30);
     }
-    for (int k = 60; k <= 120; k++){
+    for (int k = 60; k <= 120; k++) {
       servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
@@ -84,45 +84,26 @@ void walkBackward() {
       servoKN4.write(k);
       delay(30);
     }
-      for (int k = 120; k >= 60; k--){
-      servoKN2.write(k);
-      servoKN3.write(k);
-      delay(30);
-    }
-
-    //---------------- STEP 2: Shift Hips ----------------//
-   // for (int i = 70; i <= 100; i++) {
-      servoH1.write(80);
-      servoH3.write(100);
-      servoH2.write(100);
-      servoH4.write(80);
-      delay(30);
-   // }
-    delay(20);
-/*
-    //---------------- STEP 2: Lift & Lower Legs 2 & 3 ----------------//
-    // Lift Legs 2 & 3 (Knee 2 and Knee 3)
     for (int k = 120; k >= 60; k--) {
       servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
     }
 
-    // Lower Legs 2 & 3
-    for (int k = 60; k <= 120; k++) {
-      servoKN2.write(k);
-      servoKN3.write(k);
-      delay(30);
-    }
-*/
-    //---------------- Return Center ----------------//
-    //for (int i = 100; i >= 90; i--) {
-      servoH1.write(90);
-      servoH3.write(90);
-      servoH2.write(90);
-      servoH4.write(90);
-      delay(30);
-  //  }
+    servoH1.write(80);
+    servoH3.write(100);
+    servoH2.write(100);
+    servoH4.write(80);
+    delay(30);
+
+    delay(20);
+
+
+    servoH1.write(90);
+    servoH3.write(90);
+    servoH2.write(90);
+    servoH4.write(90);
+    delay(30);
   }
 }
 
@@ -151,7 +132,7 @@ void setup() {
 }
 
 
-void loop(){
+void loop() {
   walkBackward();
   delay(20000);
 }
