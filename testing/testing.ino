@@ -30,6 +30,30 @@ const int servoKN2Pin = 11;  // Front Right (servo 9)
 const int servoKN3Pin = 12;  // back Left (servo 11)
 const int servoKN4Pin = 13;  // front left (servo 10)
 
+/**************** SET ALL SERVOS TO 90° ****************/
+void set() {
+
+  // Body servos
+  servoB1.write(90);
+  servoB2.write(90);
+  servoB3.write(90);
+  servoB4.write(90);
+
+  // Hip servos
+  servoH1.write(90);
+  servoH2.write(90);
+  servoH3.write(90);
+  servoH4.write(90);
+
+  // Knee servos
+  servoKN1.write(90);
+  servoKN2.write(90);
+  servoKN3.write(90);
+  servoKN4.write(90);
+
+  delay(500);
+}
+
 /****************sit*****************/
 void Sit() {
   for (int i = 90; i >= 0; i--) {
@@ -324,15 +348,30 @@ void loop() {
   Handshake();
   delay(10000);
 
+  set();
+  delay(10000);
+
   walkForward();
+  delay(10000);
+
+  set();
   delay(10000);
 
   walkBackward();
   delay(10000);
 
+  set();
+  delay(10000);
+
   Leftmove();
   delay(10000);
 
+  set();
+  delay(10000);
+
   Rightmove();
+  delay(10000);
+
+  set();
   delay(10000);
 }
