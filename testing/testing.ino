@@ -34,52 +34,52 @@ const int servoKN4Pin = 13; // front left (servo 10)
  
 /****************BACKWARD****************/
 void walkBackward() {
-  // Repeat walking cycle
   for (int step = 0; step < 10; step++) {
-    //---------------- STEP 1 ----------------//
-    // Reverse of Forward STEP 1
+    
+    //---------------- STEP 1: Shift Hips ----------------//
     for (int i = 100; i >= 70; i--) {
-      servoH1.write(i+5);
-      servoH3.write(i);
-      servoH2.write(180 - i);
-      servoH4.write(180 - i);
-
+      servoH1.write(i);           // Symmetric right side shift
+      servoH3.write(i);           // Left side tracking
+      servoH2.write(180 - i);     // Mirrored front right
+      servoH4.write(180 - i);     // Mirrored front left
       delay(30);
     }
-delay(20);
-    // Lift Legs 1 & 3
+    delay(20);
+
+    //---------------- STEP 1: Lift & Lower Legs 1 & 4 ----------------//
+    // Lift Legs 1 & 4 (Knee 1 and Knee 4)
     for (int k = 100; k >= 60; k--) {
-      servoKN1.write(k+10);
-      servoKN4.write(k-5);
+      servoKN1.write(k);          // Cleared step offset for smooth arc
+      servoKN4.write(k);
       delay(30);
     }
 
-    // Lower Legs 1 & 3
+    // Lower Legs 1 & 4
     for (int k = 60; k <= 100; k++) {
-      servoKN1.write(k-10);
-      servoKN4.write(k-5);
+      servoKN1.write(k);
+      servoKN4.write(k);
       delay(30);
     }
 
-    //---------------- STEP 2 ----------------//
-    // Reverse of Forward STEP 2
+    //---------------- STEP 2: Shift Hips ----------------//
     for (int i = 70; i <= 100; i++) {
       servoH1.write(i);
       servoH3.write(i);
       servoH2.write(180 - i);
       servoH4.write(180 - i);
-
       delay(30);
     }
-delay(20);
-    // Lift Legs 2 & 4
+    delay(20);
+
+    //---------------- STEP 2: Lift & Lower Legs 2 & 3 ----------------//
+    // Lift Legs 2 & 3 (Knee 2 and Knee 3)
     for (int k = 100; k >= 60; k--) {
       servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
     }
 
-    // Lower Legs 2 & 4
+    // Lower Legs 2 & 3
     for (int k = 60; k <= 100; k++) {
       servoKN2.write(k);
       servoKN3.write(k);
@@ -87,13 +87,11 @@ delay(20);
     }
 
     //---------------- Return Center ----------------//
-    // Reverse of Forward Return Center
     for (int i = 100; i >= 90; i--) {
-      servoH1.write(i+5);
+      servoH1.write(i);
       servoH3.write(i);
       servoH2.write(180 - i);
       servoH4.write(180 - i);
-
       delay(30);
     }
   }
