@@ -291,9 +291,9 @@ void loop() {
 
   Stand();
   delay(10000);
-
+*/
   walkForward();
-  delay(10000);*/
+  delay(10000);
 
   walkBackward();
   delay(10000);
