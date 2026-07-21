@@ -142,7 +142,7 @@ void walkBackward() {
 
     //---------------- STEP 1 ----------------//
     // Shift hips backward
-    for (int i = 90; i <= 110; i++) {
+    for (int i = 110; i >= 70; i--) {
       servoH1.write(i);
       servoH3.write(i);
 
@@ -168,7 +168,8 @@ void walkBackward() {
 
     //---------------- STEP 2 ----------------//
     // Shift hips to opposite side
-    for (int i = 110; i >= 70; i--) {
+
+    for (int i = 90; i <= 110; i++) {
       servoH1.write(i);
       servoH3.write(i);
 
@@ -177,7 +178,6 @@ void walkBackward() {
 
       delay(30);
     }
-
     // Lift Legs 2 & 4 (same pair as forward)
     for (int k = 90; k >= 70; k--) {
       servoKN2.write(k);
