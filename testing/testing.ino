@@ -82,21 +82,21 @@ void walkForward() {
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(50);
     }
 
     // Lift Legs 1 & 4
     for (int k = 90; k >= 70; k--) {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(50);
     }
 
     // Lower Legs 1 & 4
     for (int k = 70; k <= 90; k++) {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(50);
     }
 
     //---------------- STEP 2 ----------------//
@@ -106,21 +106,21 @@ void walkForward() {
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(50);
     }
 
     // Lift Legs 2 & 3
     for (int k = 90; k >= 70; k--) {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(50);
     }
 
     // Lower Legs 2 & 3
     for (int k = 70; k <= 90; k++) {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(50);
     }
 
     //---------------- Return Center ----------------//
@@ -131,9 +131,10 @@ void walkForward() {
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(50);
     }
   }
+  delay(30);
 }
 /**************** BACKWARD ****************/
 void walkBackward() {
@@ -148,21 +149,21 @@ void walkBackward() {
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(50);
     }
 
     //---------------- Lift Legs 1 & 3 ----------------//
     for (int k = 90; k <= 110; k++) {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(50);
     }
 
     //---------------- Lower Legs 1 & 3 ----------------//
     for (int k = 110; k >= 90; k--) {
       servoKN1.write(k);
       servoKN3.write(k);
-      delay(30);
+      delay(50);
     }
 
     //---------------- STEP 2 : Shift Hips ----------------//
@@ -173,21 +174,21 @@ void walkBackward() {
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(50);
     }
 
     //---------------- Lift Legs 2 & 4 ----------------//
     for (int k = 90; k <= 110; k++) {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(50);
     }
 
     //---------------- Lower Legs 2 & 4 ----------------//
     for (int k = 110; k >= 90; k--) {
       servoKN2.write(k);
       servoKN4.write(k);
-      delay(30);
+      delay(50);
     }
 
     //---------------- Return Center ----------------//
@@ -198,9 +199,10 @@ void walkBackward() {
       servoH2.write(180 - i);
       servoH4.write(180 - i);
 
-      delay(30);
+      delay(50);
     }
   }
+  delay(30);
 }
 /*****************right move**********************/
 void Rightmove() {
