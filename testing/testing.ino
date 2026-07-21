@@ -271,7 +271,7 @@ void Handshake() {
   servoKN3.write(90);
   servoKN4.write(90);
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 20; i++) {
 
     servoB1.write(70);
     delay(800);
