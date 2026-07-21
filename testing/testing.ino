@@ -345,6 +345,9 @@ void loop() {
   Stand();
   delay(10000);
 
+  set();
+  delay(10000);
+
   Handshake();
   delay(10000);
 
