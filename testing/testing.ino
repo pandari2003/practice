@@ -281,10 +281,7 @@ void setup() {
 
 void loop() {
  
- Stand();
-  delay(10000);  // 30 seconds
-
-  Sit();
+   Sit();
   delay(10000);
 
   Stand();
