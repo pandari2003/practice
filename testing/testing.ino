@@ -278,8 +278,9 @@ void setup() {
 }
 
 void loop() {
- 
-   Sit();
+  delay(20000);
+  
+  Sit();
   delay(10000);
 
   Stand();
