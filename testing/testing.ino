@@ -280,7 +280,7 @@ void setup() {
 }
 
 void loop() {
- /*
+ 
  Stand();
   delay(10000);  // 30 seconds
 
@@ -289,16 +289,16 @@ void loop() {
 
   Stand();
   delay(10000);
-*/
+
   walkForward();
   delay(10000);
 
   walkBackward();
   delay(10000);
-/*
+
   Leftmove();
   delay(10000);
 
   Rightmove();
-  delay(10000);*/
+  delay(10000);
 }
