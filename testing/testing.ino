@@ -67,14 +67,14 @@ void walkBackward() {
 
     //---------------- STEP 1: Lift & Lower Legs 1 & 4 ----------------//
     // Lift Legs 1 & 4 (Knee 1 and Knee 4)
-    for (int k = 140; k >= 40; k--) {
+    for (int k = 120; k >= 60; k--) {
       servoKN1.write(k);  // Cleared step offset for smooth arc
       servoKN4.write(k);
       delay(30);
     }
 
     // Lower Legs 1 & 4
-    for (int k = 40; k <= 140; k++) {
+    for (int k = 60; k <= 120; k++) {
       servoKN1.write(k);
       servoKN4.write(k);
       delay(30);
@@ -89,22 +89,22 @@ void walkBackward() {
       delay(30);
    // }
     delay(20);
-
+/*
     //---------------- STEP 2: Lift & Lower Legs 2 & 3 ----------------//
     // Lift Legs 2 & 3 (Knee 2 and Knee 3)
-    for (int k = 140; k >= 40; k--) {
+    for (int k = 120; k >= 60; k--) {
       servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
     }
 
     // Lower Legs 2 & 3
-    for (int k = 40; k <= 140; k++) {
+    for (int k = 60; k <= 120; k++) {
       servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
     }
-
+*/
     //---------------- Return Center ----------------//
     //for (int i = 100; i >= 90; i--) {
       servoH1.write(90);
