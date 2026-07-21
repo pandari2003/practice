@@ -255,7 +255,37 @@ void Leftmove() {
     delay(40);
   }
 }
+/*******************hand shake*****************/
+void Handshake()
+{
+  servoB2.write(120);
+  servoB3.write(60);
+  servoB4.write(90);
 
+  servoH1.write(80);
+  servoH2.write(150);
+  servoH3.write(130);
+  servoH4.write(80);
+
+  servoKN1.write(90);
+ 
+  servoKN3.write(90);
+  servoKN4.write(90);
+
+  for (int i = 0; i <= 5; i=i++) {
+    servoB1.write(70);
+    delay(800);
+   servoB1.write(80);
+   delay(800);
+    servoKN2.write(40);
+    delay(200);
+    servoKN2.write(70);
+    delay(200);
+  }
+}
+
+
+/***********************setup************************/
 void setup() {
   Serial.begin(115200);
 
@@ -279,11 +309,14 @@ void setup() {
 
 void loop() {
   delay(20000);
-  
+
   Sit();
   delay(10000);
 
   Stand();
+  delay(10000);
+
+  Handshake();
   delay(10000);
 
   walkForward();
