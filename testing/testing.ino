@@ -275,7 +275,8 @@ void setup() {
   servoB4.attach(servoB4pin);
 
   Serial.println("Quadruped Robot Started");
-
+Sit();
+delay(1000);
   Stand();
 }
 
