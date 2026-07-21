@@ -70,7 +70,7 @@ void walkBackward() {
     for (int k = 120; k >= 60; k--) {
       servoKN1.write(k);  // Cleared step offset for smooth arc
       servoKN4.write(k);
-      delay(15);
+      delay(45);
       servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
@@ -80,7 +80,7 @@ void walkBackward() {
     for (int k = 60; k <= 120; k++) {
       servoKN1.write(k);
       servoKN4.write(k);
-      delay(15);
+      delay(45);
       servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
