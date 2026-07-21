@@ -135,60 +135,75 @@ void walkForward() {
     }
   }
 }
-
-/****************BACKWARD****************/
+/**************** BACKWARD ****************/
 void walkBackward() {
+
   for (int step = 0; step < 10; step++) {
 
-    //---------------- STEP 1: Shift Hips ----------------//
-    //for (int i = 100; i >= 70; i--) {
-    servoH1.write(80);   // Symmetric right side shift
-    servoH3.write(100);  // Left side tracking
-    servoH2.write(100);  // Mirrored front right
-    servoH4.write(80);   // Mirrored front left
-    delay(30);
-    // }
-    delay(20);
+    //---------------- STEP 1 ----------------//
+    // Shift hips backward
+    for (int i = 90; i <= 110; i++) {
+      servoH1.write(i);
+      servoH3.write(i);
 
-    //---------------- STEP 1: Lift & Lower Legs 1 & 4 ----------------//
-    // Lift Legs 1 & 4 (Knee 1 and Knee 4)
-    for (int k = 120; k >= 60; k--) {
-      servoKN1.write(k);  // Cleared step offset for smooth arc
-      servoKN4.write(k);
-      delay(30);
-    }
-    for (int k = 60; k <= 120; k++) {
-      servoKN2.write(k);
-      servoKN3.write(k);
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
+
       delay(30);
     }
 
-    // Lower Legs 1 & 4
-    for (int k = 60; k <= 120; k++) {
+    // Lift Legs 1 & 3 (same pair as forward)
+    for (int k = 90; k >= 70; k--) {
       servoKN1.write(k);
-      servoKN4.write(k);
-      delay(30);
-    }
-    for (int k = 120; k >= 60; k--) {
-      servoKN2.write(k);
       servoKN3.write(k);
       delay(30);
     }
 
-    servoH1.write(80);
-    servoH3.write(100);
-    servoH2.write(100);
-    servoH4.write(80);
-    delay(30);
+    // Lower Legs 1 & 3
+    for (int k = 70; k <= 90; k++) {
+      servoKN1.write(k);
+      servoKN3.write(k);
+      delay(30);
+    }
 
-    servoH1.write(90);
-    servoH3.write(90);
-    servoH2.write(90);
-    servoH4.write(90);
-    delay(30);
+    //---------------- STEP 2 ----------------//
+    // Shift hips to opposite side
+    for (int i = 110; i >= 70; i--) {
+      servoH1.write(i);
+      servoH3.write(i);
+
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
+
+      delay(30);
+    }
+
+    // Lift Legs 2 & 4 (same pair as forward)
+    for (int k = 90; k >= 70; k--) {
+      servoKN2.write(k);
+      servoKN4.write(k);
+      delay(30);
+    }
+
+    // Lower Legs 2 & 4
+    for (int k = 70; k <= 90; k++) {
+      servoKN2.write(k);
+      servoKN4.write(k);
+      delay(30);
+    }
+
+    //---------------- Return Center ----------------//
+    for (int i = 70; i <= 90; i++) {
+      servoH1.write(i);
+      servoH3.write(i);
+
+      servoH2.write(180 - i);
+      servoH4.write(180 - i);
+
+      delay(30);
+    }
   }
 }
-
 /*****************right move**********************/
 void Rightmove() {
   for (int step = 0; step < 5; step++) {
@@ -267,7 +282,8 @@ void setup() {
 }
 
 void loop() {
-  Stand();
+ /*
+ Stand();
   delay(10000);  // 30 seconds
 
   Sit();
@@ -277,14 +293,14 @@ void loop() {
   delay(10000);
 
   walkForward();
-  delay(10000);
+  delay(10000);*/
 
   walkBackward();
   delay(10000);
-
+/*
   Leftmove();
   delay(10000);
 
   Rightmove();
-  delay(10000);
+  delay(10000);*/
 }
