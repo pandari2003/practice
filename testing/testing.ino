@@ -30,8 +30,8 @@ const int servoKN2Pin = 11;  // Front Right (servo 9)
 const int servoKN3Pin = 12;  // back Left (servo 11)
 const int servoKN4Pin = 13;  // front left (servo 10)
 
-/**************** SET ALL SERVOS TO 90° ****************/
-void set() {
+/**************** Set ALL SERVOS TO 90° ****************/
+void Set() {
 
   // Body servos
   servoB1.write(90);
@@ -314,7 +314,7 @@ void Handshake() {
   delay(500);
 }
 
-/***********************setup************************/
+/***********************Setup************************/
 void setup() {
   Serial.begin(115200);
 
@@ -345,36 +345,36 @@ void loop() {
   Stand();
   delay(10000);
 
-  set();
+  Set();
   delay(10000);
 
   Handshake();
   delay(10000);
 
-  set();
+  Set();
   delay(10000);
 
   walkForward();
   delay(10000);
 
-  set();
+  Set();
   delay(10000);
 
   walkBackward();
   delay(10000);
 
-  set();
+  Set();
   delay(10000);
 
   Leftmove();
   delay(10000);
 
-  set();
+  Set();
   delay(10000);
 
   Rightmove();
   delay(10000);
 
-  set();
+  Set();
   delay(10000);
 }
