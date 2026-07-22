@@ -3,7 +3,7 @@
 
 const char* wifiSSID = "Telezer_J";
 const char* wifiPASS = "Telezer12";
-
+//
 volatile bool stopMotion = false;
 
 WiFiServer server(80);
