@@ -62,7 +62,15 @@ void walkForward() {
       servoKNa4.write(k);
       delay(50);
     }
+      for (int i = 70; i <= 90; i++) {
+   //
+      servoHa3.write(i);
+      servoHa4.write(i);
+      servoHa1.write(180 - i);
+      servoHa2.write(180 - i);
 
+      delay(50);
+    }
   }
 }
 
