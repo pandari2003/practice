@@ -51,16 +51,16 @@ void walkForward() {
 
       servoHa1.write(i);
       servoHa2.write(i);
-      servoHa3.write(180-i);
-      servoHa4.write(180-i);
+      servoHa3.write(170-i);
+      servoHa4.write(170-i);
       delay(60);
     }
 for (int k = 110; k >= 80; k--) {
       
       servoKNa1.write(k);
       servoKNa2.write(k);
-      servoKNa3.write(170-k); 
-      servoKNa4.write(170-k);
+      servoKNa3.write(180-k); 
+      servoKNa4.write(180-k);
       delay(50);
     }
 
