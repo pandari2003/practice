@@ -42,11 +42,12 @@ void walkForward() {
       servoKNa1.write(k);
      // servoKNa2.write(k);
       //servoKNa3.write(k);
+      delay(50);
       servoKNa4.write(k);
       delay(50);
     }
 
-    for (int i = 90; i <= 150; i++) {
+    for (int i = 90; i <= 130; i++) {
       
 
       servoHa1.write(i);
@@ -54,11 +55,12 @@ void walkForward() {
 
       delay(150);
     }
-for (int k = 150; k >= 90; k--) {
+for (int k = 130; k >= 90; k--) {
       
       servoKNa1.write(k);
      // servoKNa2.write(k);
       //servoKNa3.write(k);
+      delay(50)
       servoKNa4.write(k);
       delay(50);
     }
