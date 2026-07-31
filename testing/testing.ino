@@ -39,7 +39,7 @@ void walkForward() {
     //
     //---------------- STEP 1 ----------------//
     // Lift Legs 1 & 4
-    for (int k = 90; k >= 30; k--) {
+    for (int k = 120; k >= 30; k--) {
       //
       servoKNa1.write(k);
       //servoKNa2.write(k);
@@ -58,7 +58,7 @@ void walkForward() {
     }
 
     // Lower Legs 1 & 4
-    for (int k = 30; k <= 90; k++) {
+    for (int k = 30; k <= 120; k++) {
       //
       servoKNa1.write(k);
      // servoKNa2.write(k);
