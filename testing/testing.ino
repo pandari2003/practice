@@ -69,7 +69,7 @@ for(int i=120; i>80; i--) {
 
       servoHa1.write(i);
       servoHa2.write(i);
-      servoHa3.write(180-i+50);
+      servoHa3.write(180-i-50);
       servoHa4.write(180-i);
       delay(60);
     }
