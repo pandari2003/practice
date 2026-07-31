@@ -61,7 +61,7 @@ for (int k = 110; k >= 80; k--) {
       servoKNa2.write(k);
       servoKNa3.write(180-k); 
       servoKNa4.write(180-k);
-      //delay(50);
+      delay(50);
     }
 
 for(int i=120; i>90; i--) {
