@@ -41,8 +41,8 @@ void walkForward() {
       
       servoHa3.write(i);
       servoHa4.write(i);
-      servoHa1.write(180 - i);
-      servoHa2.write(180 - i);
+      servoHa1.write(i-180);
+      servoHa2.write(i-180);
 
       delay(150);
     }
@@ -50,8 +50,8 @@ void walkForward() {
       
       servoHa3.write(i);
       servoHa4.write(i);
-      servoHa1.write(180 - i);
-      servoHa2.write(180 - i);
+      servoHa1.write(i-180);
+      servoHa2.write(i-180);
 
       delay(150);
     }
