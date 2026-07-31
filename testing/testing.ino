@@ -39,14 +39,7 @@ void walkForward() {
     //
     //---------------- STEP 1 ----------------//
     // Lift Legs 1 & 4
-    for (int k = 120; k >= 30; k--) {
-      //
-      servoKNa1.write(k);
-      //servoKNa2.write(k);
-     // servoKNa3.write(k);
-     // servoKNa4.write(k);
-      delay(50);
-    }
+
     for (int i = 90; i >= 60; i--) {
       //
      // servoHa3.write(i);
@@ -54,6 +47,14 @@ void walkForward() {
       servoHa1.write(180 - i);
      // servoHa2.write(180 - i);
 
+      delay(50);
+    }
+        for (int k = 120; k >= 30; k--) {
+      //
+      servoKNa1.write(k);
+      //servoKNa2.write(k);
+     // servoKNa3.write(k);
+     // servoKNa4.write(k);
       delay(50);
     }
 
