@@ -38,7 +38,7 @@ void forword() {
   for (int i = 0; i <= 10; i++) {
 
     // Leg1 front right
-      for(int x=110; x > 90; x-=5){
+      for(int x=110; x > 80; x-=5){
         servoH4.write(x);
     }
     for (int j = 90; j < 150; j += 5) {
@@ -61,7 +61,7 @@ void forword() {
     delay(100);
 
     //leg2 back right
-      for(int x=110; x > 90; x-=5){
+      for(int x=110; x > 80; x-=5){
         servoH2.write(x);
     }
       for (int j = 90; j < 150; j += 5) {
@@ -83,7 +83,7 @@ void forword() {
     delay(100);
 
     //leg3 front left
-      for(int x=70; x < 90; x+=5){
+      for(int x=70; x < 110; x+=5){
         servoH3.write(x);
     }
     for (int j = 90; j > 30; j -= 5) {
@@ -105,7 +105,7 @@ void forword() {
     delay(100);
 
     //leg4 back left
-    for(int x=70; x < 90; x+=5){
+    for(int x=70; x < 110; x+=5){
         servoH1.write(x);
     }
     for (int j = 90; j > 30; j -= 5) {
