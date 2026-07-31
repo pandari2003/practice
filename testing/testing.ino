@@ -39,8 +39,8 @@ void walkForward() {
 
     for (int i = 90; i >= 60; i--) {
       
-      servoHa3.write(i);
-      servoHa4.write(i);
+     // servoHa3.write(i);
+      //servoHa4.write(i);
       servoHa1.write(180 - i);
       servoHa2.write(180 - i);
 
