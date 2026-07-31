@@ -42,7 +42,7 @@ void walkForward() {
      servoKNa1.write(k);
       servoKNa2.write(k);
       servoKNa3.write(180-k);
-      //servoKNa4.write(k);
+      servoKNa4.write(180-k);
       delay(50);
     }
 
