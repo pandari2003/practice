@@ -55,8 +55,6 @@ void walkForward() {
       delay(50);
     }
 
-
-
     // Lower Legs 1 & 4
     for (int k = 30; k <= 90; k++) {
    //
@@ -65,46 +63,7 @@ void walkForward() {
       delay(50);
     }
 
-    //---------------- STEP 2 ----------------//
-    for (int i = 70; i <= 110; i++) {
-   //
-      servoHa3.write(i);
-      servoHa4.write(i);
-      servoHa1.write(180 - i);
-      servoHa2.write(180 - i);
-
-      delay(50);
-    }
-
-    // Lift Legs 2 & 3
-    for (int k = 90; k >= 30; k--) {
-   //
-      servoKNa1.write(k);
-      servoKNa2.write(k);
-      delay(50);
-    }
-
-    // Lower Legs 2 & 3
-    for (int k = 30; k <= 90; k++) {
-   //
-      servoKNa1.write(k);
-      servoKNa2.write(k);
-      delay(50);
-    }
-
-    //---------------- Return Center ----------------//
-    for (int i = 110; i >= 90; i--) {
-   //
-      servoHa3.write(i);
-      servoHa4.write(i);
-
-      servoHa1.write(180 - i);
-      servoHa2.write(180 - i);
-
-      delay(50);
-    }
   }
-  delay(30);
 }
 
 void setup() {
