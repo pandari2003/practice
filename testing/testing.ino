@@ -42,7 +42,7 @@ void walkForward() {
 
       servoHa1.write(i);
       
-
+//
       delay(150);
     }
 for(int i=60; i<90; i++) {
