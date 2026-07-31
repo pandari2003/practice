@@ -46,7 +46,7 @@ void walkForward() {
 
       delay(50);
     }
-        for (int i = 60; i <= 90; i--) {
+    for (int i = 60; i <= 90; i++) {
       
       servoHa3.write(i);
       servoHa4.write(i);
