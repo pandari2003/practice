@@ -37,21 +37,21 @@ void walkForward() {
   // Repeat walking cycle
   for (int step = 0; step < 10; step++) {
 
-    for (int i = 90; i <= 150; i++) {
+    for (int i = 90; i <= 60; i--) {
       
       servoHa3.write(i);
       servoHa4.write(i);
-      servoHa1.write(170 - i);
-      servoHa2.write(170 - i);
+      servoHa1.write(180 - i);
+      servoHa2.write(180 - i);
 
       delay(50);
     }
-    for (int i = 150; i >= 90; i--) {
+    for (int i = 60; i <= 90; i++) {
       
       servoHa3.write(i);
       servoHa4.write(i);
-      servoHa1.write(170 - i);
-      servoHa2.write(170 - i);
+      servoHa1.write(180 - i);
+      servoHa2.write(180 - i);
 
       delay(50);
     }
