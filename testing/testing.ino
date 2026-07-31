@@ -15,21 +15,20 @@ Servo servoKN2;
 Servo servoKN3;
 Servo servoKN4;
 
-const int servoB1pin = 2;  //front right (servo 1)
-const int servoB2pin = 5;  //front left (servo 2)
-const int servoB3pin = 8;  //back right (servo 4)
-const int servoB4pin = 11;  //back left (servo 3)
+const int servoB1pin = 2;   //front right
+const int servoB3pin = 5;   //front left
+const int servoB2pin = 8;   //back right
+const int servoB4pin = 11;  //back left
 
-const int servoH1Pin = 3;  // Front Right (servo 5)
-const int servoH2Pin = 6;  // front left(servo 8)
-const int servoH3Pin = 9;  // back right (servo 6)
-const int servoH4Pin = 12;  // back Left(servo 7)
+const int servoH2Pin = 3;   // Front Right
+const int servoH4Pin = 6;   // front left
+const int servoH1Pin = 9;   // back right
+const int servoH3Pin = 12;  // back Left
 
-
-const int servoKN1Pin = 4;  // Front Right (servo 9)
-const int servoKN2Pin = 7;  // front left (servo 12)
-const int servoKN3Pin = 10;  // back right (servo 10)
-const int servoKN4Pin = 13;  // back Left (servo 11)
+const int servoKN2Pin = 4;   // Front Right
+const int servoKN4Pin = 7;   // front left
+const int servoKN1Pin = 10;  // back right
+const int servoKN3Pin = 13;  // back Left
 
 
 
