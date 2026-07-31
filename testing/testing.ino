@@ -49,7 +49,7 @@ void walkForward() {
     }
 
     // Lift Legs 1 & 4
-    for (int k = 90; k >= 70; k--) {
+    for (int k = 90; k >= 30; k--) {
    //
       servoKNa3.write(k);
       servoKNa4.write(k);
@@ -57,7 +57,7 @@ void walkForward() {
     }
 
     // Lower Legs 1 & 4
-    for (int k = 70; k <= 90; k++) {
+    for (int k = 30; k <= 90; k++) {
    //
       servoKNa3.write(k);
       servoKNa4.write(k);
@@ -76,7 +76,7 @@ void walkForward() {
     }
 
     // Lift Legs 2 & 3
-    for (int k = 90; k >= 70; k--) {
+    for (int k = 90; k >= 30; k--) {
    //
       servoKNa1.write(k);
       servoKNa2.write(k);
@@ -84,7 +84,7 @@ void walkForward() {
     }
 
     // Lower Legs 2 & 3
-    for (int k = 70; k <= 90; k++) {
+    for (int k = 30; k <= 90; k++) {
    //
       servoKNa1.write(k);
       servoKNa2.write(k);
@@ -105,8 +105,6 @@ void walkForward() {
   }
   delay(30);
 }
-
-
 
 void setup() {
   Serial.begin(115200);
