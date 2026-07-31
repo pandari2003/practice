@@ -43,22 +43,22 @@ void forword() {
     }
     for (int j = 90; j < 150; j += 5) {
       servoKN1.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 90; k < 130; k += 5) {
       servoH1.write(k);
-      delay(40);
+      delay(60);
     }
     for (int j = 150; j > 90; j -= 5) {
       servoKN1.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 130; k > 70; k -= 5) {
       
-      delay(40);
+      delay(60);
     }
   
-    delay(100);
+    delay(120);
 
     //leg2 back right
       for(int x=110; x > 80; x-=5){
@@ -66,21 +66,21 @@ void forword() {
     }
       for (int j = 90; j < 150; j += 5) {
       servoKN3.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 90; k < 130; k += 5) {
       servoH3.write(k);
-      delay(40);
+      delay(60);
     }
     for (int j = 150; j > 90; j -= 5) {
       servoKN3.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 130; k > 70; k -= 5) {
       servoH3.write(k);
-      delay(40);
+      delay(60);
     }
-    delay(100);
+    delay(120);
 
     //leg3 front left
       for(int x=70; x < 110; x+=5){
@@ -88,21 +88,21 @@ void forword() {
     }
     for (int j = 90; j > 30; j -= 5) {
       servoKN2.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 90; k > 50; k -= 5) {
       servoH2.write(k);
-      delay(40);
+      delay(60);
     }
     for (int j = 30; j < 90; j += 5) {
       servoKN2.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 50; k < 110; k += 5) {
       servoH2.write(k);
-      delay(40);
+      delay(60);
     }
-    delay(100);
+    delay(120);
 
     //leg4 back left
     for(int x=70; x < 110; x+=5){
@@ -110,21 +110,21 @@ void forword() {
     }
     for (int j = 90; j > 30; j -= 5) {
       servoKN4.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 90; k > 50; k -= 5) {
       servoH4.write(k);
-      delay(40);
+      delay(60);
     }
     for (int j = 30; j < 90; j += 5) {
       servoKN4.write(j);
-      delay(40);
+      delay(60);
     }
     for (int k = 50; k < 110; k += 5) {
       servoH4.write(k);
-      delay(40);
+      delay(60);
     }
-    delay(100);
+    delay(120);
   }
 }
 //servoB1.write(jk);
