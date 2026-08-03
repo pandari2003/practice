@@ -31,98 +31,162 @@ const int servoKNa3Pin = 10;  // back right
 const int servoKNa4Pin = 13;  // back Left
 
 
+void walkBackward() {
 
-/**************** walk Forward ******************/
-void walkForward() {
-  // Repeat walking cycle
-  for (int step = 0; step < 10; step++) {
+  for (int stp = 0; stp < 20; stp++) {
 
-   for (int k = 70; k <= 120; k++) {
-      
-     servoKNa1.write(k);
-      servoKNa2.write(k);
-      servoKNa3.write(180-k);
-      servoKNa4.write(180-k);
-      delay(50);
+    //===========================
+    // Pair 1 : Leg1 & Leg4
+    //===========================
+
+    for (int i = 0; i <= 20; i++) {
+
+      // Lift Pair 1
+      servoKNa1.write(90 - i);
+      servoKNa4.write(90 - i);
+
+      // Swing Pair 1 BACKWARD
+      servoHa1.write(90 + i);
+      servoHa2.write(90 + i);
+
+      // Pair 2 moves FORWARD
+      servoHa3.write(90 - i);
+      servoHa4.write(90 - i);
+
+      delay(35);
     }
 
-    for (int i = 90; i <= 120; i++) {
-      
+    // Lower Pair 1
+    for (int i = 20; i >= 0; i--) {
 
-      servoHa1.write(i);
-      servoHa2.write(i);
-      servoHa3.write(190-i);
-      servoHa4.write(190-i);
-      delay(60);
-    }
-for (int k = 120; k >= 70; k--) {
-      
-      servoKNa1.write(k);
-      servoKNa2.write(k);
-      servoKNa3.write(180-k); 
-      servoKNa4.write(180-k);
-      delay(50);
+      servoKNa1.write(90 - i);
+      servoKNa4.write(90 - i);
+
+      servoHa1.write(110 - (20 - i));
+      servoHa2.write(110 - (20 - i));
+
+      servoHa3.write(70 + (20 - i));
+      servoHa4.write(70 + (20 - i));
+
+      delay(35);
     }
 
-for(int i=120; i>90; i--) {
-      
+    //===========================
+    // Pair 2 : Leg2 & Leg3
+    //===========================
 
-      servoHa1.write(i);
-      servoHa2.write(i);
-      servoHa3.write(190-i);
-      servoHa4.write(190-i);
-      delay(60);
+    for (int i = 0; i <= 20; i++) {
+
+      // Lift Pair 2
+      servoKNa2.write(90 - i);
+      servoKNa3.write(90 - i);
+
+      // Swing Pair 2 BACKWARD
+      servoHa3.write(90 + i);
+      servoHa4.write(90 + i);
+
+      // Pair 1 moves FORWARD
+      servoHa1.write(90 - i);
+      servoHa2.write(90 - i);
+
+      delay(35);
     }
 
+    // Lower Pair 2
+    for (int i = 20; i >= 0; i--) {
 
+      servoKNa2.write(90 - i);
+      servoKNa3.write(90 - i);
 
+      servoHa3.write(110 - (20 - i));
+      servoHa4.write(110 - (20 - i));
 
+      servoHa1.write(70 + (20 - i));
+      servoHa2.write(70 + (20 - i));
 
-
-    /*
-    // Lift Legs 1 & 4
-
-    for (int i = 90; i >= 60; i--) {
-      //
-     // servoHa3.write(i);
-     // servoHa4.write(i);
-      servoHa1.write(180 - i);
-     // servoHa2.write(180 - i);
-
-      delay(50);
+      delay(35);
     }
-        for (int k = 90; k >= 30; k--) {
-      //
-      servoKNa1.write(k);
-      //servoKNa2.write(k);
-     // servoKNa3.write(k);
-     // servoKNa4.write(k);
-      delay(50);
-    }
-
-    // Lower Legs 1 & 4
-
-    for (int i = 60; i <= 90; i++) {
-      //
-      //servoHa3.write(i);
-     // servoHa4.write(i);
-      servoHa1.write(180 - i);
-     // servoHa2.write(180 - i);
-
-      delay(50);
-    }
-        for (int k = 30; k <= 90; k++) {
-      //
-      servoKNa1.write(k);
-     // servoKNa2.write(k);
-      //servoKNa3.write(k);
-      //servoKNa4.write(k);
-      delay(50);
-    }
-*/
   }
 }
 
+
+void walkForward() {
+
+  for(int stp=0; stp<20; stp++){
+
+    //===========================
+    // Pair 1 : Leg1 & Leg4
+    //===========================
+
+    for (int i = 0; i <= 20; i++) {
+
+      // Lift Pair 1
+      servoKNa1.write(90 - i);
+      servoKNa4.write(90 - i);
+
+      // Swing Pair 1 backward
+      servoHa1.write(90 - i);
+      servoHa2.write(90 - i);
+
+      // Pair 2 pushes forward
+      servoHa3.write(90 + i);
+      servoHa4.write(90 + i);
+
+      delay(35);
+    }
+
+    // Lower Pair 1
+    for (int i = 20; i >= 0; i--) {
+
+      servoKNa1.write(90 - i);
+      servoKNa4.write(90 - i);
+
+      servoHa1.write(70 + (20 - i));
+      servoHa2.write(70 + (20 - i));
+
+      servoHa3.write(110 - (20 - i));
+      servoHa4.write(110 - (20 - i));
+
+      delay(35);
+    }
+
+    //===========================
+    // Pair 2 : Leg2 & Leg3
+    //===========================
+
+    for (int i = 0; i <= 20; i++) {
+
+      // Lift Pair 2
+      servoKNa2.write(90 - i);
+      servoKNa3.write(90 - i);
+
+      // Swing Pair 2 backward
+      servoHa3.write(90 - i);
+      servoHa4.write(90 - i);
+
+      // Pair 1 pushes forward
+      servoHa1.write(90 + i);
+      servoHa2.write(90 + i);
+
+      delay(35);
+    }
+
+    // Lower Pair 2
+    for (int i = 20; i >= 0; i--) {
+
+      servoKNa2.write(90 - i);
+      servoKNa3.write(90 - i);
+
+      servoHa3.write(70 + (20 - i));
+      servoHa4.write(70 + (20 - i));
+
+      servoHa1.write(110 - (20 - i));
+      servoHa2.write(110 - (20 - i));
+
+      delay(35);
+    }
+  }
+}
 void setup() {
   Serial.begin(115200);
 
@@ -143,6 +207,12 @@ void setup() {
 
   Serial.println("Quadruped Robot Started");
 }
-void loop() {
+
+
+void loop(){
   walkForward();
+
+  delay(10000);
+
+  walkBackward();
 }
