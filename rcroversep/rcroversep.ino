@@ -156,6 +156,7 @@ int speedValue = 50;
 
 const int center = 512;
 const int deadZone = 50;
+const int servoMoveDelay = 30;
 
 // SERVO ANGLE FUNCTION
 
@@ -176,11 +177,16 @@ void controlJoystick(int pin, int &angle) {
 
   if (value > center + deadZone) {
     angle++;
-  } else if (value < center - deadZone) {
-    angle--;
-  }
+    angle = constrain(angle, 0, 180);
 
-  angle = constrain(angle, 0, 180);
+    delay(servoMoveDelay);
+  }
+  else if (value < center - deadZone) {
+    angle--;
+    angle = constrain(angle, 0, 180);
+
+    delay(servoMoveDelay);
+  }
 }
 
 // SETUP
@@ -314,9 +320,16 @@ servoDX2 = CDyAngle;
       0,
       180);
 
-    servoP1 = pot1Angle;
-
-    writeServo(servoP1Channel, servoP1);
+if (servoP1 < pot1Angle) {
+  servoP1++;
+  writeServo(servoP1Channel, servoP1);
+  delay(servoMoveDelay);
+}
+else if (servoP1 > pot1Angle) {
+  servoP1--;
+  writeServo(servoP1Channel, servoP1);
+  delay(servoMoveDelay);
+}
 
     // POTENTIOMETER 2
 
@@ -329,9 +342,16 @@ servoDX2 = CDyAngle;
       0,
       180);
 
-    servoP2 = pot2Angle;
-
-    writeServo(servoP2Channel, servoP2);
+if (servoP2 < pot2Angle) {
+  servoP2++;
+  writeServo(servoP2Channel, servoP2);
+  delay(servoMoveDelay);
+}
+else if (servoP2 > pot2Angle) {
+  servoP2--;
+  writeServo(servoP2Channel, servoP2);
+  delay(servoMoveDelay);
+}
 
     // SERIAL MONITOR
 
