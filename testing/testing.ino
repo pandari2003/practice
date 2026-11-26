@@ -1,3 +1,4 @@
+
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 
@@ -6,8 +7,10 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);
 #define SERVOMIN 120
 #define SERVOMAX 550
 #define SERVO_FREQ 50
-#define MOVE_DELAY 20
-#define NUM_SERVOS 8  // Channels 0 through 7
+#define NUM_SERVOS 8
+
+// GLOBAL SERVO MOVEMENT TIMING
+int SERVO_STEP_DELAY = 70;  // Increase value for slower movement
 
 // Track current angles for Channels 0 through 7
 int currentAngle[NUM_SERVOS] = { 90, 90, 90, 90, 90, 90, 90, 90 };
@@ -39,7 +42,7 @@ void moveAll(int target0, int target1, int target2, int target3, int target4, in
         moving = true;
       }
     }
-    delay(MOVE_DELAY);
+    delay(SERVO_STEP_DELAY);
   }
 }
 
@@ -56,20 +59,20 @@ void set() {
 // Sit posture
 void sit() {
   moveAll(
-    110, 110,
-    60, 60,
-    110, 110,
-    60, 60
+    130, 20,
+    50, 150,
+    130, 20,
+    50, 150
   );
 }
 
 // Stand posture
 void stand() {
   moveAll(
-    80, 80,
-    110, 110,
-    80, 80,
-    110, 110
+    90, 90,
+    90, 90,
+    90, 90,
+    90, 90
   );
 }
 
@@ -88,11 +91,11 @@ void setup() {
 
 void loop() {
   set();
-  delay(20000);
+  delay(5000);
 
- //sit();
-  delay(20000);
+  sit();
+  delay(5000);
 
- // stand();
-  delay(20000);
+  stand();
+  delay(5000);
 }
