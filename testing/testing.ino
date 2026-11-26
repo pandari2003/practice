@@ -28,11 +28,10 @@ int currentAngle[NUM_SERVOS] = {
 
 // Even channels = HIP
 // Odd channels = KNEE
-
-int HIP_FORWARD = 65;
-int HIP_BACKWARD = 115;
-int KNEE_UP = 65;
-int KNEE_DOWN = 90;
+int HIP_FORWARD = 75;
+int HIP_BACKWARD = 110;
+int KNEE_UP = 75;
+int KNEE_DOWN = 80;
 
 
 // ==========================================
@@ -173,104 +172,78 @@ void stand() {
 //
 // 6 = Rear Right HIP
 // 7 = Rear Right KNEE
-
-
-// ==========================================
-// PHASE 1
-// FRONT LEFT + REAR RIGHT LIFT
-// ==========================================
-
 void walkPhase1() {
 
   moveAll(
-
-    HIP_FORWARD, KNEE_UP,
-
-    HIP_BACKWARD, KNEE_DOWN,
-
-    HIP_BACKWARD, KNEE_DOWN,
-
-    HIP_FORWARD, KNEE_UP
-
+    HIP_FORWARD, KNEE_UP,       // Front Left
+    HIP_BACKWARD, KNEE_DOWN,    // Front Right
+    HIP_BACKWARD, KNEE_DOWN,    // Rear Left
+    HIP_FORWARD, KNEE_UP        // Rear Right
   );
 
-  delay(WALK_DELAY);
-
+  delay(100);
 }
 
 
-// ==========================================
 // PHASE 2
-// FRONT LEFT + REAR RIGHT DOWN
-// ==========================================
+// Front Left + Rear Right come down
 
 void walkPhase2() {
 
   moveAll(
-
-    HIP_FORWARD, KNEE_DOWN,
-
     HIP_BACKWARD, KNEE_DOWN,
-
     HIP_BACKWARD, KNEE_DOWN,
-
-    HIP_FORWARD, KNEE_DOWN
-
+    HIP_BACKWARD, KNEE_DOWN,
+    HIP_BACKWARD, KNEE_DOWN
   );
 
-  delay(WALK_DELAY);
-
+  delay(100);
 }
 
 
-// ==========================================
 // PHASE 3
-// FRONT RIGHT + REAR LEFT LIFT
-// ==========================================
+// Front Right + Rear Left lift together
 
 void walkPhase3() {
 
   moveAll(
-
     HIP_BACKWARD, KNEE_DOWN,
-
     HIP_FORWARD, KNEE_UP,
-
     HIP_FORWARD, KNEE_UP,
-
     HIP_BACKWARD, KNEE_DOWN
-
   );
 
-  delay(WALK_DELAY);
-
+  delay(100);
 }
 
 
-// ==========================================
 // PHASE 4
-// FRONT RIGHT + REAR LEFT DOWN
-// ==========================================
+// Front Right + Rear Left come down
 
 void walkPhase4() {
 
   moveAll(
-
     HIP_BACKWARD, KNEE_DOWN,
-
-    HIP_FORWARD, KNEE_DOWN,
-
-    HIP_FORWARD, KNEE_DOWN,
-
+    HIP_BACKWARD, KNEE_DOWN,
+    HIP_BACKWARD, KNEE_DOWN,
     HIP_BACKWARD, KNEE_DOWN
-
   );
 
-  delay(WALK_DELAY);
-
+  delay(100);
 }
 
 
+// COMPLETE WALKING CYCLE
+
+void walk() {
+
+  walkPhase1();
+  walkPhase2();
+
+  walkPhase3();
+  walkPhase4();
+
+}
 // ==========================================
 // COMPLETE WALKING CYCLE
 // ==========================================
