@@ -1,728 +1,98 @@
-#include <Servo.h>
+#include <Wire.h>
+#include <Adafruit_PWMServoDriver.h>
 
-Servo servoBa1;
-Servo servoBa2;
-Servo servoBa3;
-Servo servoBa4;
+Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);
 
-Servo servoHa1;
-Servo servoHa2;
-Servo servoHa3;
-Servo servoHa4;
+#define SERVOMIN 120
+#define SERVOMAX 550
+#define SERVO_FREQ 50
+#define MOVE_DELAY 20
+#define NUM_SERVOS 8  // Channels 0 through 7
 
-Servo servoKNa1;
-Servo servoKNa2;
-Servo servoKNa3;
-Servo servoKNa4;
+// Track current angles for Channels 0 through 7
+int currentAngle[NUM_SERVOS] = { 90, 90, 90, 90, 90, 90, 90, 90 };
 
-const int servoBa1pin = 2;   //front right
-const int servoBa2pin = 5;   //front left
-const int servoBa3pin = 8;   //back right
-const int servoBa4pin = 11;  //back left
-
-const int servoHa1Pin = 3;   // Front Right
-const int servoHa2Pin = 6;   // front left
-const int servoHa3Pin = 9;   // back right
-const int servoHa4Pin = 12;  // back Left
-
-const int servoKNa1Pin = 4;   // Front Right
-const int servoKNa2Pin = 7;   // front left
-const int servoKNa3Pin = 10;  // back right
-const int servoKNa4Pin = 13;  // back Left
-
-void Set() {
-
-  // Body servos
-  servoBa1.write(90);
-  servoBa3.write(90);
-  servoBa2.write(90);
-  servoBa4.write(90);
-
-  // Hip servos
-  servoHa3.write(90);
-  servoHa1.write(90);
-  servoHa4.write(90);
-  servoHa2.write(90);
-
-  // Knee servos
-  servoKNa3.write(90);
-  servoKNa1.write(90);
-  servoKNa4.write(90);
-  servoKNa2.write(90);
-
-  delay(500);
+int angleToPulse(int angle) {
+  return map(angle, 0, 180, SERVOMIN, SERVOMAX);
 }
 
+void servoWrite(int channel, int angle) {
+  pwm.setPWM(channel, 0, angleToPulse(angle));
+  currentAngle[channel] = angle;
+}
 
-void Sit() {
+// Move Channels 0 through 7 smoothly at the same time
+void moveAll(int target0, int target1, int target2, int target3, int target4, int target5, int target6, int target7) {
+  int targets[NUM_SERVOS] = { target0, target1, target2, target3, target4, target5, target6, target7 };
+  bool moving = true;
 
-  for (int i = 90; i >= 45; i--) {
-
-    // Left pair
-    servoHa1.write(i);
-    servoHa4.write(i);
-    servoKNa1.write(i - 45);
-    servoKNa4.write(i - 45);
-
-    // Right pair
-    servoHa3.write(180 - i);
-    servoHa2.write(180 - i);
-    servoKNa3.write(230 - i);
-    servoKNa2.write(230 - i);
-
-    delay(80);
+  while (moving) {
+    moving = false;
+    for (int i = 0; i < NUM_SERVOS; i++) {
+      if (currentAngle[i] < targets[i]) {
+        currentAngle[i]++;
+        servoWrite(i, currentAngle[i]);
+        moving = true;
+      } else if (currentAngle[i] > targets[i]) {
+        currentAngle[i]--;
+        servoWrite(i, currentAngle[i]);
+        moving = true;
+      }
+    }
+    delay(MOVE_DELAY);
   }
 }
 
-void Stand() {
-
-  for (int i = 45; i <= 90; i++) {
-
-    // Left pair
-    servoHa1.write(i);
-    servoHa4.write(i);
-
-    servoKNa1.write(i - 45);     // 0 -> 45
-    servoKNa4.write(i - 45);
-
-    // Right pair
-    servoHa3.write(180 - i);     // 135 -> 90
-    servoHa2.write(180 - i);
-
-    servoKNa3.write(230 - i);    // 180 -> 140
-    servoKNa2.write(230 - i);
-
-    delay(80);
-  }
-
-Set();
+// Set all 8 servos smoothly to 90 degrees
+void set() {
+  moveAll(
+    90, 90,
+    90, 90,
+    90, 90,
+    90, 90
+  );
 }
 
-void walkBackward() {
-
-  for (int stp = 0; stp < 20; stp++) {
-
-    //===========================
-    // Pair 1 : Leg1 & Leg4
-    //===========================
-
-    for (int i = 0; i <= 20; i++) {
-
-      // Lift Pair 1
-      servoKNa1.write(90 - i);
-      servoKNa4.write(90 - i);
-
-      // Reverse hip swing
-      servoHa1.write(90 + i);
-      servoHa2.write(90 + i);
-
-      servoHa3.write(90 - i);
-      servoHa4.write(90 - i);
-
-      delay(35);
-    }
-
-    // Pair 1 touches ground and pushes body backward
-    for (int i = 0; i <= 20; i++) {
-
-      servoKNa1.write(70 + i);
-      servoKNa4.write(70 + i);
-
-      servoHa1.write(110 - i);
-      servoHa2.write(110 - i);
-
-      servoHa3.write(70 + i);
-      servoHa4.write(70 + i);
-
-      delay(35);
-    }
-
-    //===========================
-    // Pair 2 : Leg2 & Leg3
-    //===========================
-
-    for (int i = 0; i <= 20; i++) {
-
-      // Lift Pair 2
-      servoKNa2.write(90 - i);
-      servoKNa3.write(90 - i);
-
-      // Reverse hip swing
-      servoHa3.write(90 + i);
-      servoHa4.write(90 + i);
-
-      servoHa1.write(90 - i);
-      servoHa2.write(90 - i);
-
-      delay(35);
-    }
-
-    // Pair 2 touches ground and pushes body backward
-    for (int i = 0; i <= 20; i++) {
-
-      servoKNa2.write(70 + i);
-      servoKNa3.write(70 + i);
-
-      servoHa3.write(110 - i);
-      servoHa4.write(110 - i);
-
-      servoHa1.write(70 + i);
-      servoHa2.write(70 + i);
-
-      delay(35);
-    }
-  }
+// Sit posture
+void sit() {
+  moveAll(
+    110, 110,
+    60, 60,
+    110, 110,
+    60, 60
+  );
 }
 
-
-void walkForward() {
-
-  for(int stp=0; stp<20; stp++){
-
-    //===========================
-    // Pair 1 : Leg1 & Leg4
-    //===========================
-
-    for (int i = 0; i <= 20; i++) {
-
-      // Lift Pair 1
-      servoKNa1.write(90 - i);
-      servoKNa4.write(90 - i);
-
-      // Swing Pair 1 backward
-      servoHa1.write(90 - i);
-      servoHa2.write(90 - i);
-
-      // Pair 2 pushes forward
-      servoHa3.write(90 + i);
-      servoHa4.write(90 + i);
-
-      delay(35);
-    }
-
-    // Lower Pair 1
-    for (int i = 20; i >= 0; i--) {
-
-      servoKNa1.write(90 - i);
-      servoKNa4.write(90 - i);
-
-      servoHa1.write(70 + (20 - i));
-      servoHa2.write(70 + (20 - i));
-
-      servoHa3.write(110 - (20 - i));
-      servoHa4.write(110 - (20 - i));
-
-      delay(35);
-    }
-
-    //===========================
-    // Pair 2 : Leg2 & Leg3
-    //===========================
-
-    for (int i = 0; i <= 20; i++) {
-
-      // Lift Pair 2
-      servoKNa2.write(90 - i);
-      servoKNa3.write(90 - i);
-
-      // Swing Pair 2 backward
-      servoHa3.write(90 - i);
-      servoHa4.write(90 - i);
-
-      // Pair 1 pushes forward
-      servoHa1.write(90 + i);
-      servoHa2.write(90 + i);
-
-      delay(35);
-    }
-
-    // Lower Pair 2
-    for (int i = 20; i >= 0; i--) {
-
-      servoKNa2.write(90 - i);
-      servoKNa3.write(90 - i);
-
-      servoHa3.write(70 + (20 - i));
-      servoHa4.write(70 + (20 - i));
-
-      servoHa1.write(110 - (20 - i));
-      servoHa2.write(110 - (20 - i));
-
-      delay(35);
-    }
-  }
+// Stand posture
+void stand() {
+  moveAll(
+    80, 80,
+    110, 110,
+    80, 80,
+    110, 110
+  );
 }
 
-
-/*****************right move**********************/
-#include <Servo.h>
-
-Servo servoBa1;
-Servo servoBa2;
-Servo servoBa3;
-Servo servoBa4;
-
-Servo servoHa1;
-Servo servoHa2;
-Servo servoHa3;
-Servo servoHa4;
-
-Servo servoKNa1;
-Servo servoKNa2;
-Servo servoKNa3;
-Servo servoKNa4;
-
-const int servoBa1pin = 2;   //front right
-const int servoBa2pin = 5;   //front left
-const int servoBa3pin = 8;   //back right
-const int servoBa4pin = 11;  //back left
-
-const int servoHa1Pin = 3;   // Front Right
-const int servoHa2Pin = 6;   // front left
-const int servoHa3Pin = 9;   // back right
-const int servoHa4Pin = 12;  // back Left
-
-const int servoKNa1Pin = 4;   // Front Right
-const int servoKNa2Pin = 7;   // front left
-const int servoKNa3Pin = 10;  // back right
-const int servoKNa4Pin = 13;  // back Left
-
-// ADJUSTED CONFIGURATION FOR SMALLER ANGLES AND SMOOTHNESS
-const int stepDelay = 15;     // Small delay per micro-step for smooth speed transitions
-const int liftAngle = 25;     // REDUCED: Lower knee lift to prevent excessive leg shaking
-const int swingAngle = 12;    // REDUCED: Shorter hip stride to keep movements small and balanced
-const int microSteps = 60;    // Added loop resolution for ultra-smooth sub-degree calculations
-
-/**************** SET ALL SERVOS TO 90° ****************/
-void Set() {
-  // Body servos
-  servoBa1.write(90);
-  servoBa3.write(90);
-  servoBa2.write(90);
-  servoBa4.write(90);
-
-  // Hip servos
-  servoHa3.write(90);
-  servoHa1.write(90);
-  servoHa4.write(90);
-  servoHa2.write(90);
-
-  // Knee servos
-  servoKNa3.write(90);
-  servoKNa1.write(90);
-  servoKNa4.write(90);
-  servoKNa2.write(90);
-
-  delay(500);
-}
-
-/****************sit*****************/
-void Sit() {
-  for (int i = 90; i >= 45; i--) {
-    // Left pair
-    servoHa1.write(i);
-    servoHa4.write(i);
-    servoKNa1.write(i - 45);
-    servoKNa4.write(i - 45);
-
-    // Right pair
-    servoHa3.write(180 - i);
-    servoHa2.write(180 - i);
-    servoKNa3.write(230 - i);
-    servoKNa2.write(230 - i);
-
-    delay(80);  
-  }
-  delay(60);
-}
-
-/******************stand robot********************/
-void Stand() {
-  for (int i = 45; i <= 90; i++) {
-    // Left pair
-    servoHa1.write(i);
-    servoHa4.write(i);
-    servoKNa1.write(i - 45);
-    servoKNa4.write(i - 45);
-
-    // Right pair
-    servoHa3.write(180 - i);
-    servoHa2.write(180 - i);
-    servoKNa3.write(230 - i);
-    servoKNa2.write(230 - i);
-
-    delay(50);  
-  }
-  delay(50);
-  Set();
-}
-
-/**************** REDUCED ANGLE & ULTRA-SMOOTH WALK FORWARD ******************/
-void walkForward() {
-  for (int step = 0; step < 10; step++) {
-    
-    //---------------- STEP 1: Micro-Lift Pair A & Micro-Swing Hips ----------------//
-    for (int i = 0; i <= microSteps; i++) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      int progressHA = map(i, 0, microSteps, 0, swingAngle);
-      
-      // Smooth vertical lift (Front Right + Back Left)
-      servoKNa1.write(90 - progressKN); 
-      servoKNa4.write(90 - progressKN);
-      
-      // Smooth micro hip movement
-      servoHa1.write(90 + progressHA); 
-      servoHa4.write(90 - progressHA); 
-      servoHa2.write(90 + progressHA); 
-      servoHa3.write(90 - progressHA); 
-      
-      delay(stepDelay);
-    }
-
-    //---------------- STEP 2: Ground Pair A Smoothly ----------------//
-    for (int i = microSteps; i >= 0; i--) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      servoKNa1.write(90 - progressKN);
-      servoKNa4.write(90 - progressKN);
-      delay(stepDelay);
-    }
-
-    //---------------- STEP 3: Micro-Lift Pair B & Micro-Swing Hips Opposite ----------------//
-    for (int i = 0; i <= microSteps; i++) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      int progressHA = map(i, 0, microSteps, 0, swingAngle);
-      
-      // Smooth vertical lift (Front Left + Back Right)
-      servoKNa2.write(90 - progressKN); 
-      servoKNa3.write(90 - progressKN);
-      
-      // Smooth micro hip movement opposite direction
-      servoHa2.write(90 - progressHA); 
-      servoHa3.write(90 + progressHA); 
-      servoHa1.write(90 - progressHA); 
-      servoHa4.write(90 + progressHA); 
-      
-      delay(stepDelay);
-    }
-
-    //---------------- STEP 4: Ground Pair B Smoothly ----------------//
-    for (int i = microSteps; i >= 0; i--) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      servoKNa2.write(90 - progressKN);
-      servoKNa3.write(90 - progressKN);
-      delay(stepDelay);
-    }
-  }
-  delay(30);
-}
-
-/**************** REDUCED ANGLE & ULTRA-SMOOTH WALK BACKWARD ****************/
-void walkBackward() {
-  for (int step = 0; step < 10; step++) {
-    
-    //---------------- STEP 1: Micro-Lift Pair A & Micro-Swing Hips Backwards ----------------//
-    for (int i = 0; i <= microSteps; i++) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      int progressHA = map(i, 0, microSteps, 0, swingAngle);
-      
-      servoKNa1.write(90 - progressKN); 
-      servoKNa4.write(90 - progressKN);
-      
-      servoHa1.write(90 - progressHA); 
-      servoHa4.write(90 + progressHA); 
-      servoHa2.write(90 - progressHA); 
-      servoHa3.write(90 + progressHA); 
-      
-      delay(stepDelay);
-    }
-
-    //---------------- STEP 2: Ground Pair A Smoothly ----------------//
-    for (int i = microSteps; i >= 0; i--) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      servoKNa1.write(90 - progressKN);
-      servoKNa4.write(90 - progressKN);
-      delay(stepDelay);
-    }
-
-    //---------------- STEP 3: Micro-Lift Pair B & Micro-Swing Hips Opposite Backwards ----------------//
-    for (int i = 0; i <= microSteps; i++) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      int progressHA = map(i, 0, microSteps, 0, swingAngle);
-      
-      servoKNa2.write(90 - progressKN); 
-      servoKNa3.write(90 - progressKN);
-      
-      servoHa2.write(90 + progressHA); 
-      servoHa3.write(90 - progressHA); 
-      servoHa1.write(90 + progressHA); 
-      servoHa4.write(90 - progressHA); 
-      
-      delay(stepDelay);
-    }
-
-    //---------------- STEP 4: Ground Pair B Smoothly ----------------//
-    for (int i = microSteps; i >= 0; i--) {
-      int progressKN = map(i, 0, microSteps, 0, liftAngle);
-      servoKNa2.write(90 - progressKN);
-      servoKNa3.write(90 - progressKN);
-      delay(stepDelay);
-    }
-  }
-  delay(30);
-}
-
-/*****************right move**********************/
-void Rightmove() {
-  for (int step = 0; step < 5; step++) {
- //
-    //---------------- STEP 1 ----------------//
-    for (int i = 70; i <= 110; i++) {
-   //
-      servoBa1.write(90);
-      servoBa2.write(i);
-      servoKNa1.write(i);
-      servoBa3.write(180 - i);
-      servoBa4.write(90);
-
-      delay(50);
-    }
-    for (int i = 110; i >= 70; i--) {
-   //
-      servoBa1.write(90);
-      servoBa2.write(i);
-      servoKNa1.write(i);
-      servoBa3.write(180 - i);
-      servoBa4.write(90);
-
-      delay(50);
-    }
-    delay(40);
-  }
-}
-
-/************************left move***************/
-void Leftmove() {
-  for (int step = 0; step < 5; step++) {
- //
-    //---------------- STEP 1 ----------------//
-    for (int i = 110; i >= 70; i--) {
-   //
-      servoBa2.write(90);
-      servoBa1.write(i);
-      servoKNa2.write(i);
-      servoBa4.write(180 - i);
-      servoBa3.write(90);
-
-      delay(80);
-    }
-    delay(40);
-
-    for (int i = 70; i <= 110; i++) {
-   //
-      servoBa2.write(90);
-      servoBa1.write(i);
-      servoKNa3.write(i);
-      servoBa4.write(180 - i);
-      servoBa3.write(90);
-
-      delay(80);
-    }
-    delay(40);
-  }
-}
-
-/*******************hand shake*****************/
-void Handshake() {
-  servoBa3.write(90);   servoBa2.write(90);   servoBa4.write(90);
-  servoHa3.write(90);   servoHa4.write(90);   servoHa2.write(90);
-  servoKNa3.write(90);  servoKNa4.write(90);  servoKNa2.write(90);
-
-  for (int i = 0; i < 2; i++) {
-    servoHa1.write(150); // Reduced sweep angle from 150
-    servoBa1.write(85);
-    delay(600);
-
-    servoBa1.write(95);
-    delay(600);
-
-    servoKNa1.write(40); // Reduced knee sweep angle
-    delay(200);
-
-    servoKNa1.write(70);
-    delay(200);
-    servoHa1.write(90);
-  }
-  delay(500);
-  Set();
-}
-
-/***********************Setup**************************/
 void setup() {
-  Serial.begin(115200);
+  Wire.begin();
+  pwm.begin();
+  pwm.setOscillatorFrequency(27000000);
+  pwm.setPWMFreq(SERVO_FREQ);
 
-  servoHa3.attach(servoHa3Pin);
-  servoHa1.attach(servoHa1Pin);
-  servoHa4.attach(servoHa4Pin);
-  servoHa2.attach(servoHa2Pin);
-
-  servoKNa3.attach(servoKNa3Pin);
-  servoKNa1.attach(servoKNa1Pin);
-  servoKNa4.attach(servoKNa4Pin);
-  servoKNa2.attach(servoKNa2Pin);
-
-  servoBa1.attach(servoBa1pin);
-  servoBa3.attach(servoBa3pin);
-  servoBa2.attach(servoBa2pin);
-  servoBa4.attach(servoBa4pin);
-
-  Set(); 
-  Serial.println("Quadruped Robot Started");
+  // Initialize all eight channels at 90 degrees
+  for (int i = 0; i < NUM_SERVOS; i++) {
+    servoWrite(i, 90);
+  }
+  delay(1000);
 }
 
-/***********************Loop **************************/
 void loop() {
-  delay(500);
+  set();
+  delay(20000);
 
-  Sit();
-  delay(500);
+ //sit();
+  delay(20000);
 
-  Stand();
-  delay(500);
-
-  Set();
-  delay(500);
-
-  Handshake();
-  delay(500);
-
-  Set();
-  delay(500);
-
-  walkForward();
-  delay(500);
-
-  Set();
-  delay(500);
-
-  walkBackward();
-  delay(500);
-
-  Set();
-  delay(500);
-
-  Leftmove();
-  delay(500);
-
-  Set();
-  delay(500);
-
-  Rightmove();
-  delay(500);
-
-  Set();
-  delay(500);
-}
- 
-/*******************hand shake*****************/
-void Handshake() {
-
-  servoBa3.write(90);
-  servoBa2.write(90);
-  servoBa4.write(90);
-
-  servoHa3.write(90);
-  servoHa4.write(90);
-  servoHa2.write(90);
-
-  servoKNa3.write(90);
-  servoKNa4.write(90);
-  servoKNa2.write(90);
-
-  for (int i = 0; i < 2; i++) {
- //
-    servoHa1.write(150);
-    servoBa1.write(85);
-    delay(800);
-
-    servoBa1.write(95);
-    delay(800);
-
-    servoKNa1.write(40);
-    delay(200);
-
-    servoKNa1.write(70);
-    delay(200);
-    servoHa1.write(90);
-  }
-  delay(500);
-  Set();
-}
-
-
-void setup() {
-  Serial.begin(115200);
-
-  servoHa3.attach(servoHa3Pin);
-  servoHa1.attach(servoHa1Pin);
-  servoHa4.attach(servoHa4Pin);
-  servoHa2.attach(servoHa2Pin);
-
-  servoKNa3.attach(servoKNa3Pin);
-  servoKNa1.attach(servoKNa1Pin);
-  servoKNa4.attach(servoKNa4Pin);
-  servoKNa2.attach(servoKNa2Pin);
-
-  servoBa1.attach(servoBa1pin);
-  servoBa3.attach(servoBa3pin);
-  servoBa2.attach(servoBa2pin);
-  servoBa4.attach(servoBa4pin);
-
-  Serial.println("Quadruped Robot Started");
-}
-
-
-void loop(){
-
- // Set();
-//delay(10000);
-
-  //Sit();
-  //delay(10000);
-  
-  //Stand();
-  //delay(10000);
-
- // Set();
-//delay(10000);
-
- //walkForward();
-  //delay(10000);
-
- // Set();
-//delay(10000);
-
- // walkBackward();
-  //delay(10000);
-
- // Set();
-//delay(10000);
-
-// Leftmove();
-  //delay(10000);
-
- // Set();
-//delay(10000);
-
- //Rightmove();
-  //delay(10000);
-
- // Set();
-//delay(10000);
-
- //Handshake();
-  //delay(10000);
-
-   // Set();
-//delay(10000);
-
+ // stand();
+  delay(20000);
 }
